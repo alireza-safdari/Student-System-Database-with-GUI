@@ -6,9 +6,11 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Excel = Microsoft.Office.Interop.Excel;
 
 
 
@@ -48,45 +50,50 @@ namespace Student_Management_System
 
         MySql.Data.MySqlClient.MySqlDataAdapter presidentDataAdapter;
         DataSet presidentDataSet;
-        
+
+        Random rnd = new Random();
+
 
 
         public Form1()
         {
             InitializeComponent();
 
-
-            string myConnectionString;
-
-            myConnectionString = "server=127.0.0.1;" + "uid=CSharp;" + "database=studentDb;" + "pwd=i am c#";
-
-            try
-            {
-                sqlConnection = new MySql.Data.MySqlClient.MySqlConnection();
-                sqlConnection.ConnectionString = myConnectionString;
-                sqlConnection.Open();
-                sqlConnection.StateChange += HandleSqlStatusChange;
-                connectToServerBtn.Enabled = false;
-            }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
-            {
-                switch (ex.Number)
-                {
-                    case 0:
-                        MessageBox.Show("Cannot connect to server.  Contact administrator");
-                        break;
-                    case 1045:
-                        MessageBox.Show("Invalid username/password, please try again");
-                        break;
-                }
-            }
+            groupBox1.Enabled = false;
+            groupBox2.Enabled = false;
+            groupBox3.Enabled = false;
+            groupBox4.Enabled = false;
+            groupBox5.Enabled = false;
+            groupBox6.Enabled = false;
+            groupBox7.Enabled = false;
+            groupBox8.Enabled = false;
+            groupBox9.Enabled = false;
+            groupBox10.Enabled = false;
+            groupBox11.Enabled = false;
+            groupBox12.Enabled = false;
+            groupBox13.Enabled = false;
+            groupBox14.Enabled = false;
+            groupBox15.Enabled = false;
+            groupBox16.Enabled = false;
+            groupBox17.Enabled = false;
+            groupBox18.Enabled = false;
+            groupBox19.Enabled = false;
+            groupBox20.Enabled = false;
+            groupBox22.Enabled = false;
+            groupBox23.Enabled = false;
+            groupBox26.Enabled = false;
+            groupBox27.Enabled = false;
+            groupBox28.Enabled = false;
+            groupBox29.Enabled = false;
+            groupBox30.Enabled = false;
+            groupBox31.Enabled = false;
         }
 
         private void connectToServer_Click(object sender, EventArgs e)
         {
             string myConnectionString;
-
-            myConnectionString = "server=127.0.0.1;" + "uid=CSharp;" + "database=studentDb;" + "pwd=i am c#";
+            // myConnectionString = "server=127.0.0.1;" + "uid=CSharp;" + "database=studentDb;" + "pwd=i am c#";
+            myConnectionString = "server="+ serverIp_txt.Text + ";" + "uid=" + username_txt.Text + ";" + "database=" + databaseName_txt.Text + ";" + "pwd=" + password_txt.Text;
 
             try
             {
@@ -95,6 +102,35 @@ namespace Student_Management_System
                 sqlConnection.Open();
                 sqlConnection.StateChange += HandleSqlStatusChange;
                 connectToServerBtn.Enabled = false;
+                groupBox1.Enabled = true;
+                groupBox2.Enabled = true;
+                groupBox3.Enabled = true;
+                groupBox4.Enabled = true;
+                groupBox5.Enabled = true;
+                groupBox6.Enabled = true;
+                groupBox7.Enabled = true;
+                groupBox8.Enabled = true;
+                groupBox9.Enabled = true;
+                groupBox10.Enabled = true;
+                groupBox11.Enabled = true;
+                groupBox12.Enabled = true;
+                groupBox13.Enabled = true;
+                groupBox14.Enabled = true;
+                groupBox15.Enabled = true;
+                groupBox16.Enabled = true;
+                groupBox17.Enabled = true;
+                groupBox18.Enabled = true;
+                groupBox19.Enabled = true;
+                groupBox20.Enabled = true;
+                groupBox22.Enabled = true;
+                groupBox23.Enabled = true;
+                groupBox26.Enabled = true;
+                groupBox27.Enabled = true;
+                groupBox28.Enabled = true;
+                groupBox29.Enabled = true;
+                groupBox30.Enabled = true;
+                groupBox31.Enabled = true;
+
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
@@ -119,16 +155,43 @@ namespace Student_Management_System
             }
         }
 
-
         private void HandleSqlStatusChange(object connection, StateChangeEventArgs args)
         {
             if (sqlConnection.State.ToString() == "Closed") // tested
             {
                 MessageBox.Show("SQL connection is lost!!!\r\n Please reconnect again.");
                 connectToServerBtn.Enabled = true;
+                groupBox1.Enabled = false;
+                groupBox2.Enabled = false;
+                groupBox3.Enabled = false;
+                groupBox4.Enabled = false;
+                groupBox5.Enabled = false;
+                groupBox6.Enabled = false;
+                groupBox7.Enabled = false;
+                groupBox8.Enabled = false;
+                groupBox9.Enabled = false;
+                groupBox10.Enabled = false;
+                groupBox11.Enabled = false;
+                groupBox12.Enabled = false;
+                groupBox13.Enabled = false;
+                groupBox14.Enabled = false;
+                groupBox15.Enabled = false;
+                groupBox16.Enabled = false;
+                groupBox17.Enabled = false;
+                groupBox18.Enabled = false;
+                groupBox19.Enabled = false;
+                groupBox20.Enabled = false;
+                groupBox22.Enabled = false;
+                groupBox23.Enabled = false;
+                groupBox26.Enabled = false;
+                groupBox27.Enabled = false;
+                groupBox28.Enabled = false;
+                groupBox29.Enabled = false;
+                groupBox30.Enabled = false;
+                groupBox31.Enabled = false;
+
             }
         }
-
 
         private void create_btn_Click(object sender, EventArgs e)
         {
@@ -1261,5 +1324,724 @@ namespace Student_Management_System
                 MessageBox.Show(ex.Message);
             }
         }
-    }
+
+        private void generateData_btn_Click(object sender, EventArgs e)
+        {
+            var outPutDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase);
+            MessageBox.Show("Make sure the Excel file provided for data generation is located at: " + outPutDirectory);
+
+            var excelPath = System.IO.Path.Combine(outPutDirectory, "StudentDatabaseSample.xlsx");
+
+            //Create COM Objects. Create a COM object for everything that is referenced
+            Excel.Application xlApp = new Excel.Application();
+            Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(excelPath);
+            Excel._Worksheet xlWorksheet = xlWorkbook.Sheets[1];
+            Excel.Range xlRange = xlWorksheet.UsedRange;
+
+
+
+            decimal nDepartment = nDepartment_updwn.Value;
+            decimal nProf = nProfessor_updwn.Value;
+            decimal nStudent = nStudent_updwn.Value;
+            decimal nCourse = nCourse_updwn.Value;
+            decimal nClass = nClasses_updwn.Value;
+            decimal avgNStudentPerClass = avgNStudentPerClass_updwn.Value;
+            decimal nClubs = nClub_updwn.Value;
+            decimal avgNStudentsPerClub = avgNStudentPerClass_updwn.Value;
+
+
+
+            decimal depIdMin = 100;
+            decimal depIdMax = depIdMin + nDepartment - 1;
+            for (decimal i = 0; i < nDepartment; i++)
+            {
+                dataGenerateStatus_lbl.Text = "Generating " + i + "/" + nDepartment + " entries for \"department\" table...";
+
+                decimal depId = depIdMin + i;
+                string name = xlRange.Cells[i + 2, 3].Value2.ToString();
+                string phoneNumber = getAPhoneNumber();
+                string email = getEmail(name);
+                try
+                {
+                    string myInsertQuery = "INSERT INTO department  VALUES (" + depId + ", '" + name + "', '" + phoneNumber + "', '" + email + "');";
+                    MySql.Data.MySqlClient.MySqlCommand myCommand = new MySql.Data.MySqlClient.MySqlCommand(myInsertQuery);
+                    myCommand.Connection = sqlConnection;
+                    myCommand.ExecuteNonQuery();
+                    updateTable_btn.Enabled = false;
+                }
+                catch (MySql.Data.MySqlClient.MySqlException ex)
+                {
+                    // MessageBox.Show(ex.Message + "\n" + "Happened at" + name + "where i = " + i.ToString());
+                    i--;
+                }
+            }
+
+
+
+            decimal profIdMin = 1000;
+            decimal profIdMax = profIdMin + nProf - 1;
+            for (decimal i = 0; i < nProf; i++)
+            {
+                dataGenerateStatus_lbl.Text = "Generating " + i + "/" + nProf + " entries for \"professor\" table...";
+
+                decimal profId = profIdMin + i;
+
+                decimal randFirstNameRowN = rnd.Next(2, 502);
+                decimal randFamilyNameRowN = rnd.Next(2, 502);
+
+                string name = xlRange.Cells[randFirstNameRowN, 1].Value2.ToString() + " " + xlRange.Cells[randFamilyNameRowN, 1].Value2.ToString();
+                string birhdate = rnd.Next(1950, 1996).ToString() + "-" + rnd.Next(1, 13).ToString("00") + "-" + rnd.Next(1, 29).ToString("00"); // take note 1996, 13 and 29 are not included
+                string phoneNumber = getAPhoneNumber();
+                string email = getEmail(name);
+                try
+                {
+                    string myInsertQuery = "INSERT INTO professor  VALUES (" + profId + ", '" + name + "', '" + birhdate + "', '" + phoneNumber + "', '" + email + "');";
+                    MySql.Data.MySqlClient.MySqlCommand myCommand = new MySql.Data.MySqlClient.MySqlCommand(myInsertQuery);
+                    myCommand.Connection = sqlConnection;
+                    myCommand.ExecuteNonQuery();
+                    profUpdateTable_btn.Enabled = false;
+                }
+                catch (MySql.Data.MySqlClient.MySqlException ex)
+                {
+                    i--;
+                }
+            }
+
+
+
+            decimal uinMin = 10000;
+            decimal uinMax = uinMin + nStudent - 1;
+            for (decimal i = 0; i < nStudent; i++)
+            {
+                dataGenerateStatus_lbl.Text = "Generating " + i + "/" + nStudent + " entries for \"student\" table...";
+
+                decimal uin = uinMin + i;
+
+                decimal randFirstNameRowN = rnd.Next(2, 502);
+                decimal randFamilyNameRowN = rnd.Next(2, 502);
+
+                string name = xlRange.Cells[randFirstNameRowN, 1].Value2.ToString() + " " + xlRange.Cells[randFamilyNameRowN, 1].Value2.ToString();
+                string birhdate = rnd.Next(1990, 2002).ToString() + "-" + rnd.Next(1, 13).ToString("00") + "-" + rnd.Next(1, 29).ToString("00"); // take note 1996, 13 and 29 are not included
+                string phoneNumber = getAPhoneNumber();
+                string email = getEmail(name);
+                string depId = rnd.Next(Convert.ToInt32(depIdMin), Convert.ToInt32(depIdMax + 1)).ToString();
+                try
+                {
+                    string myInsertQuery = "INSERT INTO student  VALUES (" + uin + ", '" + name + "', '" + birhdate + "', '" + phoneNumber + "', '" + email + "', " + depId + ");";
+                    MySql.Data.MySqlClient.MySqlCommand myCommand = new MySql.Data.MySqlClient.MySqlCommand(myInsertQuery);
+                    myCommand.Connection = sqlConnection;
+                    myCommand.ExecuteNonQuery();
+                    studentUpdateTable_btn.Enabled = false;
+                }
+                catch (MySql.Data.MySqlClient.MySqlException ex)
+                {
+                    i--;
+                }
+            }
+
+
+
+            decimal courseMin = 0;
+            decimal courseMax = courseMin + nCourse - 1;
+            string[] courseCodes = new String[Convert.ToInt32(nCourse)];
+            for (decimal i = 0; i < nCourse; i++)
+            {
+                dataGenerateStatus_lbl.Text = "Generating " + i + "/" + nCourse + " entries for \"course\" table...";
+
+                string courseCode = getACourseCode();
+                decimal randCourseNameRowN = rnd.Next(2, 1698);
+                string name = xlRange.Cells[randCourseNameRowN, 4].Value2.ToString();
+                string credit = rnd.Next(1, 6).ToString();
+                string depId = rnd.Next(Convert.ToInt32(depIdMin), Convert.ToInt32(depIdMax + 1)).ToString();
+                try
+                {
+                    string myInsertQuery = "INSERT INTO course  VALUES ('" + courseCode + "', '" + name + "', " + credit + ", " + depId + ");";
+                    MySql.Data.MySqlClient.MySqlCommand myCommand = new MySql.Data.MySqlClient.MySqlCommand(myInsertQuery);
+                    myCommand.Connection = sqlConnection;
+                    myCommand.ExecuteNonQuery();
+                    courseCodes[Convert.ToInt32(i)] = courseCode;
+                    courseUpdateTable_btn.Enabled = false;
+                }
+                catch (MySql.Data.MySqlClient.MySqlException ex)
+                {
+                    i--;
+                }
+            }
+
+
+
+            decimal classIdMin = 10000;
+            decimal classIdMax = classIdMin + nClass - 1;
+            for (decimal i = 0; i < nClass; i++)
+            {
+                dataGenerateStatus_lbl.Text = "Generating " + i + "/" + nClass + " entries for \"class\" table...";
+
+                string classId = (classIdMin + i).ToString();
+                string year = rnd.Next(2010, 2020).ToString();
+                string semester = rnd.Next(1, 4).ToString();
+                string courseCode = courseCodes[rnd.Next(Convert.ToInt32(courseMin), Convert.ToInt32(courseMax + 1))];
+                try
+                {
+                    string myInsertQuery = "INSERT INTO class  VALUES (" + classId + ", " + year + ", " + semester + ", '" + courseCode + "');";
+                    MySql.Data.MySqlClient.MySqlCommand myCommand = new MySql.Data.MySqlClient.MySqlCommand(myInsertQuery);
+                    myCommand.Connection = sqlConnection;
+                    myCommand.ExecuteNonQuery();
+                    classUpdateTable_btn.Enabled = false;
+                }
+                catch (MySql.Data.MySqlClient.MySqlException ex)
+                {
+                    i--;
+                }
+            }
+
+
+
+            for (decimal i = classIdMin; i < classIdMax; i++)
+            {
+                dataGenerateStatus_lbl.Text = "Generating " + i + "/~" + classIdMax + " entries for \"teach\" table...";
+
+                string classId = i.ToString();
+                string profId = rnd.Next(Convert.ToInt32(profIdMin), Convert.ToInt32(profIdMax + 1)).ToString();
+                try
+                {
+                    string myInsertQuery = "INSERT INTO teach  VALUES (" + profId + ", " + classId + ");";
+                    MySql.Data.MySqlClient.MySqlCommand myCommand = new MySql.Data.MySqlClient.MySqlCommand(myInsertQuery);
+                    myCommand.Connection = sqlConnection;
+                    myCommand.ExecuteNonQuery();
+                    classUpdateTable_btn.Enabled = false;
+                    if (rnd.Next(1, 31) % 30 == 0)
+                    {
+                        i--; // resulting in more than one teacher
+                    }
+                }
+                catch (MySql.Data.MySqlClient.MySqlException ex)
+                {
+                    i--;
+                }
+            }
+
+
+
+            for (decimal i = 0; i < nClass * avgNStudentPerClass; i++)
+            {
+                dataGenerateStatus_lbl.Text = "Generating " + i + "/" + nClass * avgNStudentPerClass + " entries for \"taken\" table...";
+
+                string uin = rnd.Next(Convert.ToInt32(uinMin), Convert.ToInt32(uinMax + 1)).ToString();
+                string classId = rnd.Next(Convert.ToInt32(classIdMin), Convert.ToInt32(classIdMax + 1)).ToString();
+                decimal randGrade = rnd.Next(0, 100);
+
+                if (randGrade < 5)
+                    randGrade = rnd.Next(0, 70);
+                else if (randGrade < 95)
+                    randGrade = rnd.Next(70, 95);
+                else
+                    randGrade = rnd.Next(95, 101);
+
+                string grade = randGrade.ToString();
+
+                try
+                {
+                    string myInsertQuery = "INSERT INTO taken  VALUES (" + uin + ", " + classId + ", " + grade + ");";
+                    MySql.Data.MySqlClient.MySqlCommand myCommand = new MySql.Data.MySqlClient.MySqlCommand(myInsertQuery);
+                    myCommand.Connection = sqlConnection;
+                    myCommand.ExecuteNonQuery();
+                    takenUpdateTable_btn.Enabled = false;
+                }
+                catch (MySql.Data.MySqlClient.MySqlException ex)
+                {
+                    i--;
+                }
+            }
+
+
+
+            decimal clubIdMin = 100;
+            decimal clubIdMax = clubIdMin + nClubs - 1;
+            for (decimal i = 0; i < nClubs; i++)
+            {
+                dataGenerateStatus_lbl.Text = "Generating " + i + "/" + nClubs + " entries for \"club\" table...";
+
+                string clubId = (clubIdMin + i).ToString();
+                string name = xlRange.Cells[i + 2, 5].Value2.ToString();
+                string email = getEmail(name);
+                try
+                {
+                    string myInsertQuery = "INSERT INTO club  VALUES (" + clubId + ", '" + name + "', '" + email + "');";
+                    MySql.Data.MySqlClient.MySqlCommand myCommand = new MySql.Data.MySqlClient.MySqlCommand(myInsertQuery);
+                    myCommand.Connection = sqlConnection;
+                    myCommand.ExecuteNonQuery();
+                    clubUpdateTable_btn.Enabled = false;
+                }
+                catch (MySql.Data.MySqlClient.MySqlException ex)
+                {
+                    // MessageBox.Show(ex.Message + "\n" + "Happened at" + name + "where i = " + i.ToString());
+                    i--;
+                }
+            }
+
+
+
+            for (decimal i = 0; i < nClubs * avgNStudentsPerClub; i++)
+            {
+                dataGenerateStatus_lbl.Text = "Generating " + i + "/" + nClubs * avgNStudentsPerClub + " entries for \"member\" table...";
+
+                string uin = rnd.Next(Convert.ToInt32(uinMin), Convert.ToInt32(uinMax + 1)).ToString();
+                string clubId = rnd.Next(Convert.ToInt32(clubIdMin), Convert.ToInt32(clubIdMax + 1)).ToString();
+
+                try
+                {
+                    string myInsertQuery = "INSERT INTO member  VALUES (" + uin + ", " + clubId + ");";
+                    MySql.Data.MySqlClient.MySqlCommand myCommand = new MySql.Data.MySqlClient.MySqlCommand(myInsertQuery);
+                    myCommand.Connection = sqlConnection;
+                    myCommand.ExecuteNonQuery();
+                    memberUpdateTable_btn.Enabled = false;
+                }
+                catch (MySql.Data.MySqlClient.MySqlException ex)
+                {
+                    i--;
+                }
+            }
+
+
+
+            for (int i = 0; i < nClubs; i++)
+            {
+                dataGenerateStatus_lbl.Text = "Generating " + i + "/" + nClubs + " entries for \"president\" table...";
+
+                string uin = rnd.Next(Convert.ToInt32(uinMin), Convert.ToInt32(uinMax + 1)).ToString();
+                string clubId = (clubIdMin + i).ToString();
+
+                try
+                {
+                    string myInsertQuery = "INSERT INTO president  VALUES (" + uin + ", " + clubId + ");";
+                    MySql.Data.MySqlClient.MySqlCommand myCommand = new MySql.Data.MySqlClient.MySqlCommand(myInsertQuery);
+                    myCommand.Connection = sqlConnection;
+                    myCommand.ExecuteNonQuery();
+                    presidentUpdateTable_btn.Enabled = false;
+                }
+                catch (MySql.Data.MySqlClient.MySqlException ex)
+                {
+                    i--;
+                }
+            }
+
+
+            dataGenerateStatus_lbl.Text = "All entries are generated!";
+
+
+            //cleanup
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+
+            //rule of thumb for releasing com objects:
+            //  never use two dots, all COM objects must be referenced and released individually
+            //  ex: [somthing].[something].[something] is bad
+
+            //release com objects to fully kill excel process from running in the background
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(xlRange);
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(xlWorksheet);
+
+            //close and release
+            xlWorkbook.Close();
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(xlWorkbook);
+
+            //quit and release
+            xlApp.Quit();
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(xlApp);
+
+        }
+
+        private string getAPhoneNumber()
+        {
+            string phoneNumber;
+            phoneNumber = "(";
+            phoneNumber += rnd.Next(1, 10).ToString();
+            phoneNumber += rnd.Next(0, 10).ToString();
+            phoneNumber += rnd.Next(0, 10).ToString();
+            phoneNumber += ")";
+            phoneNumber += rnd.Next(0, 10).ToString();
+            phoneNumber += rnd.Next(0, 10).ToString();
+            phoneNumber += rnd.Next(0, 10).ToString();
+            phoneNumber += "-";
+            phoneNumber += rnd.Next(0, 10).ToString();
+            phoneNumber += rnd.Next(0, 10).ToString();
+            phoneNumber += rnd.Next(0, 10).ToString();
+            phoneNumber += rnd.Next(0, 10).ToString();
+
+            return phoneNumber;
+        }
+
+        private string getEmail(string input)
+        {
+            string email = Regex.Replace(input, @"\s", "");
+            var emailSize = email.Length;
+            if (emailSize > 35)
+            {
+                emailSize = 35;
+            }
+            email = email.Substring(0, emailSize) + "@uni.org";
+            return email;
+        }
+
+        private string getACourseCode()
+        {
+            string courseCode = "";
+            switch(rnd.Next(1, 8))
+            {
+                case 1:
+                    courseCode = "ABC";
+                    break;
+                case 2:
+                    courseCode = "DEF";
+                    break;
+                case 3:
+                    courseCode = "GHI";
+                    break;
+                case 4:
+                    courseCode = "JKL";
+                    break;
+                case 5:
+                    courseCode = "MNO";
+                    break;
+                case 6:
+                    courseCode = "PQR";
+                    break;
+                case 7:
+                    courseCode = "STU";
+                    break;
+            }
+            courseCode += "-";
+            courseCode += rnd.Next(1000, 10000).ToString("0000");
+
+
+            return courseCode;
+        }
+
+        private void deleteAllEntries_btn_Click(object sender, EventArgs e)
+        {
+            deleteStatus_lbl.Text = "Deleting entries in \"president\" table...";
+            try
+            {
+                string myInsertQuery = "DELETE FROM president;";
+                MySql.Data.MySqlClient.MySqlCommand myCommand = new MySql.Data.MySqlClient.MySqlCommand(myInsertQuery);
+                myCommand.Connection = sqlConnection;
+                myCommand.ExecuteNonQuery();
+                presidentUpdateTable_btn.Enabled = false;
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            deleteStatus_lbl.Text = "Deleting entries in \"member\" table...";
+            try
+            {
+                string myInsertQuery = "DELETE FROM member;";
+                MySql.Data.MySqlClient.MySqlCommand myCommand = new MySql.Data.MySqlClient.MySqlCommand(myInsertQuery);
+                myCommand.Connection = sqlConnection;
+                myCommand.ExecuteNonQuery();
+                memberUpdateTable_btn.Enabled = false;
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            deleteStatus_lbl.Text = "Deleting entries in \"club\" table...";
+            try
+            {
+                string myInsertQuery = "DELETE FROM club;";
+                MySql.Data.MySqlClient.MySqlCommand myCommand = new MySql.Data.MySqlClient.MySqlCommand(myInsertQuery);
+                myCommand.Connection = sqlConnection;
+                myCommand.ExecuteNonQuery();
+                clubUpdateTable_btn.Enabled = false;
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            deleteStatus_lbl.Text = "Deleting entries in \"taken\" table...";
+            try
+            {
+                string myInsertQuery = "DELETE FROM taken;";
+                MySql.Data.MySqlClient.MySqlCommand myCommand = new MySql.Data.MySqlClient.MySqlCommand(myInsertQuery);
+                myCommand.Connection = sqlConnection;
+                myCommand.ExecuteNonQuery();
+                takenUpdateTable_btn.Enabled = false;
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            deleteStatus_lbl.Text = "Deleting entries in \"teach\" table...";
+            try
+            {
+                string myInsertQuery = "DELETE FROM teach;";
+                MySql.Data.MySqlClient.MySqlCommand myCommand = new MySql.Data.MySqlClient.MySqlCommand(myInsertQuery);
+                myCommand.Connection = sqlConnection;
+                myCommand.ExecuteNonQuery();
+                teachUpdateTable_btn.Enabled = false;
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            deleteStatus_lbl.Text = "Deleting entries in \"class\" table...";
+            try
+            {
+                string myInsertQuery = "DELETE FROM class;";
+                MySql.Data.MySqlClient.MySqlCommand myCommand = new MySql.Data.MySqlClient.MySqlCommand(myInsertQuery);
+                myCommand.Connection = sqlConnection;
+                myCommand.ExecuteNonQuery();
+                classUpdateTable_btn.Enabled = false;
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            deleteStatus_lbl.Text = "Deleting entries in \"course\" table...";
+            try
+            {
+                string myInsertQuery = "DELETE FROM course;";
+                MySql.Data.MySqlClient.MySqlCommand myCommand = new MySql.Data.MySqlClient.MySqlCommand(myInsertQuery);
+                myCommand.Connection = sqlConnection;
+                myCommand.ExecuteNonQuery();
+                courseUpdateTable_btn.Enabled = false;
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            deleteStatus_lbl.Text = "Deleting entries in \"student\" table...";
+            try
+            {
+                string myInsertQuery = "DELETE FROM student;";
+                MySql.Data.MySqlClient.MySqlCommand myCommand = new MySql.Data.MySqlClient.MySqlCommand(myInsertQuery);
+                myCommand.Connection = sqlConnection;
+                myCommand.ExecuteNonQuery();
+                studentUpdateTable_btn.Enabled = false;
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            deleteStatus_lbl.Text = "Deleting entries in \"professor\" table...";
+            try
+            {
+                string myInsertQuery = "DELETE FROM Professor;";
+                MySql.Data.MySqlClient.MySqlCommand myCommand = new MySql.Data.MySqlClient.MySqlCommand(myInsertQuery);
+                myCommand.Connection = sqlConnection;
+                myCommand.ExecuteNonQuery();
+                profUpdateTable_btn.Enabled = false;
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            deleteStatus_lbl.Text = "Deleting entries in \"department\" table...";
+            try
+            {
+                string myInsertQuery = "DELETE FROM department;";
+                MySql.Data.MySqlClient.MySqlCommand myCommand = new MySql.Data.MySqlClient.MySqlCommand(myInsertQuery);
+                myCommand.Connection = sqlConnection;
+                myCommand.ExecuteNonQuery();
+                updateTable_btn.Enabled = false;
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            deleteStatus_lbl.Text = "Deleting all entries is completed!";
+        }
+
+        private void appStudentInformation_btn_Click(object sender, EventArgs e)
+        {
+            decimal uin = appStudentUin_updwn.Value;
+
+            try
+            {
+                MySql.Data.MySqlClient.MySqlDataAdapter studentPersonalInformationDataAdapter;
+                DataSet studentPersonalInformationDataSet;
+
+                string sqlQuery = "SELECT student.uin as 'UIN', student.name as 'Name', student.birthdate as 'Date of Birth', student.phoneNumber as 'Phone Number', student.email as 'Email', department.name as 'Department' " + 
+                                  "FROM student, department " + 
+                                  "WHERE department.depId = student.depId AND student.uin =" + uin + ";";
+                studentPersonalInformationDataAdapter = new MySql.Data.MySqlClient.MySqlDataAdapter(sqlQuery, sqlConnection);
+                MySql.Data.MySqlClient.MySqlCommandBuilder cb = new MySql.Data.MySqlClient.MySqlCommandBuilder(studentPersonalInformationDataAdapter);
+                studentPersonalInformationDataSet = new DataSet();
+                studentPersonalInformationDataAdapter.Fill(studentPersonalInformationDataSet, "personal information");
+                studentPersonalInformation_GridView.DataSource = studentPersonalInformationDataSet;
+                studentPersonalInformation_GridView.DataMember = "personal information";
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+
+            try
+            {
+                MySql.Data.MySqlClient.MySqlDataAdapter studentCoursesDataAdapter;
+                DataSet studentCoursesDataSet;
+
+                string sqlQuery = "SELECT class.classId as 'Class ID', course.courseCode as 'Course Code', course.name as 'Course Name', class.year as 'Year', class.Semester as 'Semester', course.credit as 'Credit Hours', taken.grade as 'Grade', allAverages.courseAverage as 'Class Average', allAverages.bestGrade as 'Top Score', professor.name as 'Professor Name' " +
+                                  "FROM professor, taken, class, course, teach, (SELECT classId, (sum(taken.grade)/count(taken.uin)) as courseAverage, max(taken.grade) as bestGrade FROM taken group by classId) as allAverages " +
+                                  "WHERE  allAverages.classId = class.classId AND teach.profId = professor.profId AND teach.classId = class.classId AND course.courseCode = class.courseCode AND class.classId = taken.classId AND taken.uin = " + uin +";";
+                studentCoursesDataAdapter = new MySql.Data.MySqlClient.MySqlDataAdapter(sqlQuery, sqlConnection);
+                MySql.Data.MySqlClient.MySqlCommandBuilder cb = new MySql.Data.MySqlClient.MySqlCommandBuilder(studentCoursesDataAdapter);
+                studentCoursesDataSet = new DataSet();
+                studentCoursesDataAdapter.Fill(studentCoursesDataSet, "courses taken");
+                studentCoursesTaken_GridView.DataSource = studentCoursesDataSet;
+                studentCoursesTaken_GridView.DataMember = "courses taken";
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+
+            try
+            {
+                MySql.Data.MySqlClient.MySqlDataAdapter studentGpaDataAdapter;
+                DataSet studentGpanDataSet;
+
+                string sqlQuery = "SELECT student.name as 'Name', (sum(taken.grade * course.credit)/(sum(course.credit))) as 'GPA', sum(case when taken.grade > 60 then course.credit end) as 'Total Credit Passed', sum(course.credit) as 'Total Credit Taken' " + 
+                                  "FROM student, taken, course, class " +
+                                  "WHERE course.courseCode = class.courseCode AND class.classId = taken.classId AND taken.uin = student.uin and student.uin =" + uin + ";";
+                studentGpaDataAdapter = new MySql.Data.MySqlClient.MySqlDataAdapter(sqlQuery, sqlConnection);
+                MySql.Data.MySqlClient.MySqlCommandBuilder cb = new MySql.Data.MySqlClient.MySqlCommandBuilder(studentGpaDataAdapter);
+                studentGpanDataSet = new DataSet();
+                studentGpaDataAdapter.Fill(studentGpanDataSet, "GPA");
+                studentGpa_GridView.DataSource = studentGpanDataSet;
+                studentGpa_GridView.DataMember = "GPA";
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+            try
+            {
+                MySql.Data.MySqlClient.MySqlDataAdapter studentMembershipDataAdapter;
+                DataSet studentMembershipDataSet;
+
+                string sqlQuery = "SELECT club.name as 'Name', 'Active Member' as 'Membership' " + 
+                                  "FROM member, club " + 
+                                  "WHERE club.clubId = member.clubId AND member.uin =" + uin + ";";
+                studentMembershipDataAdapter = new MySql.Data.MySqlClient.MySqlDataAdapter(sqlQuery, sqlConnection);
+                MySql.Data.MySqlClient.MySqlCommandBuilder cb = new MySql.Data.MySqlClient.MySqlCommandBuilder(studentMembershipDataAdapter);
+                studentMembershipDataSet = new DataSet();
+                studentMembershipDataAdapter.Fill(studentMembershipDataSet, "Membership");
+                studentClubMembership_GridView.DataSource = studentMembershipDataSet;
+                studentClubMembership_GridView.DataMember = "Membership";
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+            try
+            {
+                MySql.Data.MySqlClient.MySqlDataAdapter studentPresidentDataAdapter;
+                DataSet studentPresidentDataSet;
+
+                string sqlQuery = "SELECT club.name as 'Name', 'President' as 'Role' " +
+                                  "FROM president, club " +
+                                  "WHERE club.clubId = president.clubId AND president.uin =" + uin + ";";
+                studentPresidentDataAdapter = new MySql.Data.MySqlClient.MySqlDataAdapter(sqlQuery, sqlConnection);
+                MySql.Data.MySqlClient.MySqlCommandBuilder cb = new MySql.Data.MySqlClient.MySqlCommandBuilder(studentPresidentDataAdapter);
+                studentPresidentDataSet = new DataSet();
+                studentPresidentDataAdapter.Fill(studentPresidentDataSet, "President");
+                studentPresident_GridView.DataSource = studentPresidentDataSet;
+                studentPresident_GridView.DataMember = "President";
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void appPrefessorLookUp_btn_Click(object sender, EventArgs e)
+        {
+            decimal profId = appProfessorId_updown.Value;
+
+            try
+            {
+                MySql.Data.MySqlClient.MySqlDataAdapter professorPersonalInformationDataAdapter;
+                DataSet professorPersonalInformationDataSet;
+
+                string sqlQuery = "SELECT professor.profId as 'Professor ID', professor.name as 'Name', professor.birthdate as 'Date of Birth', professor.phoneNumber as 'Phone Number', professor.email as 'Email' " + 
+                                  "FROM professor " + 
+                                  "WHERE professor.profId =" + profId + ";";
+                professorPersonalInformationDataAdapter = new MySql.Data.MySqlClient.MySqlDataAdapter(sqlQuery, sqlConnection);
+                MySql.Data.MySqlClient.MySqlCommandBuilder cb = new MySql.Data.MySqlClient.MySqlCommandBuilder(professorPersonalInformationDataAdapter);
+                professorPersonalInformationDataSet = new DataSet();
+                professorPersonalInformationDataAdapter.Fill(professorPersonalInformationDataSet, "personal information");
+                professorPersonalInformation_GridView.DataSource = professorPersonalInformationDataSet;
+                professorPersonalInformation_GridView.DataMember = "personal information";
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+
+            try
+            {
+                MySql.Data.MySqlClient.MySqlDataAdapter professorCourseTaughtDataAdapter;
+                DataSet professorCourseTaughtDataSet;
+
+                string sqlQuery = "SELECT class.classId as 'Class ID', course.courseCode as 'Course Code', course.name as 'Name', class.year as 'Year', class.semester  as 'Semester', course.credit as 'Credit Hours', (sum(taken.grade)/count(taken.uin)) as 'Class Average', max(taken.grade) as 'Top Scpre' " +
+                                  "FROM professor, teach, class, course, taken " +
+                                  "WHERE taken.classId = class.classId  AND class.courseCode = course.courseCode AND class.classId = teach.classId AND teach.profId = professor.profId AND professor.profId =" + profId + " " +
+                                  "group by class.classId;";
+                professorCourseTaughtDataAdapter = new MySql.Data.MySqlClient.MySqlDataAdapter(sqlQuery, sqlConnection);
+                MySql.Data.MySqlClient.MySqlCommandBuilder cb = new MySql.Data.MySqlClient.MySqlCommandBuilder(professorCourseTaughtDataAdapter);
+                professorCourseTaughtDataSet = new DataSet();
+                professorCourseTaughtDataAdapter.Fill(professorCourseTaughtDataSet, "Course Taught");
+                professorCourseTaught_GridView.DataSource = professorCourseTaughtDataSet;
+                professorCourseTaught_GridView.DataMember = "Course Taught";
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void appCourseLookUp_btn_Click(object sender, EventArgs e)
+        {
+            string courseCode = appCourseCode_txt.Text;
+            try
+            {
+                MySql.Data.MySqlClient.MySqlDataAdapter courseHistoryTaughtDataAdapter;
+                DataSet courseHistoryTaughtDataSet;
+                string sqlQuery = "SELECT class.classId as 'Class ID', course.courseCode as 'Course Code', course.name as 'Course Name', course.credit as 'Credit Hours', class.year as 'Year', class.Semester as 'Semester', allAverages.courseAverage as 'Class Average', allAverages.bestGrade as 'Top Score', professor.name as 'Professor Name', professor.email as 'Professor Email', professor.profId as 'Professor ID' " +
+                                  "FROM professor, course, class, teach, (SELECT classId, (sum(taken.grade)/count(taken.uin)) as courseAverage, max(taken.grade) as bestGrade FROM taken group by classId) as allAverages " +
+                                  "WHERE allAverages.classId = class.classId AND professor.profId = teach.profId AND teach.classId = class.classId AND class.courseCode = course.courseCode AND course.courseCode = '" + courseCode + "';";
+                courseHistoryTaughtDataAdapter = new MySql.Data.MySqlClient.MySqlDataAdapter(sqlQuery, sqlConnection);
+                MySql.Data.MySqlClient.MySqlCommandBuilder cb = new MySql.Data.MySqlClient.MySqlCommandBuilder(courseHistoryTaughtDataAdapter);
+                courseHistoryTaughtDataSet = new DataSet();
+                courseHistoryTaughtDataAdapter.Fill(courseHistoryTaughtDataSet, "Course History");
+                courseHistory_GridView.DataSource = courseHistoryTaughtDataSet;
+                courseHistory_GridView.DataMember = "Course History";
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+}
 }

@@ -31,10 +31,49 @@ namespace Student_Management_System
         private void InitializeComponent()
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox23 = new System.Windows.Forms.GroupBox();
+            this.dataGenerateStatus_lbl = new System.Windows.Forms.Label();
+            this.avgNStudentPerClub_updwn = new System.Windows.Forms.NumericUpDown();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.nClub_updwn = new System.Windows.Forms.NumericUpDown();
+            this.label29 = new System.Windows.Forms.Label();
+            this.avgNStudentPerClass_updwn = new System.Windows.Forms.NumericUpDown();
+            this.label28 = new System.Windows.Forms.Label();
+            this.nClasses_updwn = new System.Windows.Forms.NumericUpDown();
+            this.label27 = new System.Windows.Forms.Label();
+            this.nCourse_updwn = new System.Windows.Forms.NumericUpDown();
+            this.label26 = new System.Windows.Forms.Label();
+            this.nStudent_updwn = new System.Windows.Forms.NumericUpDown();
+            this.label25 = new System.Windows.Forms.Label();
+            this.nProfessor_updwn = new System.Windows.Forms.NumericUpDown();
+            this.label24 = new System.Windows.Forms.Label();
+            this.nDepartment_updwn = new System.Windows.Forms.NumericUpDown();
+            this.nDepartment_lbl = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.generateData_btn = new System.Windows.Forms.Button();
+            this.groupBox22 = new System.Windows.Forms.GroupBox();
+            this.deleteStatus_lbl = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.deleteAllEntries_btn = new System.Windows.Forms.Button();
+            this.groupBox21 = new System.Windows.Forms.GroupBox();
+            this.serverIp_txt = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.databaseName_txt = new System.Windows.Forms.TextBox();
+            this.databaseName_lbl = new System.Windows.Forms.Label();
+            this.password_txt = new System.Windows.Forms.TextBox();
+            this.password_lbl = new System.Windows.Forms.Label();
+            this.username_txt = new System.Windows.Forms.TextBox();
+            this.username_lbl = new System.Windows.Forms.Label();
+            this.connectToServerBtn = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.departmentInsert = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.delete_btn = new System.Windows.Forms.Button();
             this.update_btn = new System.Windows.Forms.Button();
             this.email_txt = new System.Windows.Forms.MaskedTextBox();
@@ -53,6 +92,8 @@ namespace Student_Management_System
             this.refresh_btn = new System.Windows.Forms.Button();
             this.professorInsert = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.profBirthdate_date = new System.Windows.Forms.DateTimePicker();
             this.profBirthdate_lbl = new System.Windows.Forms.Label();
             this.profDelete_btn = new System.Windows.Forms.Button();
@@ -73,6 +114,8 @@ namespace Student_Management_System
             this.profRefreshTable_btn = new System.Windows.Forms.Button();
             this.studentInsert = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.studentForeignKey_lbl = new System.Windows.Forms.Label();
+            this.studentPrimaryKey_lbl = new System.Windows.Forms.Label();
             this.studentDepId_updwn = new System.Windows.Forms.NumericUpDown();
             this.studentDepId_lbl = new System.Windows.Forms.Label();
             this.studentBirthdate_date = new System.Windows.Forms.DateTimePicker();
@@ -98,6 +141,8 @@ namespace Student_Management_System
             this.studentRefreshTable_btn = new System.Windows.Forms.Button();
             this.courseInsert = new System.Windows.Forms.TabPage();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.courseCredit_updwn = new System.Windows.Forms.NumericUpDown();
             this.courseDepId_updwn = new System.Windows.Forms.NumericUpDown();
             this.courseDepId_lbl = new System.Windows.Forms.Label();
@@ -119,6 +164,8 @@ namespace Student_Management_System
             this.courseRefreshTable_btn = new System.Windows.Forms.Button();
             this.classInsert = new System.Windows.Forms.TabPage();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.classId_updwn = new System.Windows.Forms.NumericUpDown();
             this.classSemester_updwn = new System.Windows.Forms.NumericUpDown();
             this.classYear_updwn = new System.Windows.Forms.NumericUpDown();
@@ -140,6 +187,8 @@ namespace Student_Management_System
             this.classRefreshTable_btn = new System.Windows.Forms.Button();
             this.teachInsert = new System.Windows.Forms.TabPage();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.teachClassId_updwn = new System.Windows.Forms.NumericUpDown();
             this.teachProfId_updwn = new System.Windows.Forms.NumericUpDown();
             this.teachclassId_lbl = new System.Windows.Forms.Label();
@@ -160,6 +209,8 @@ namespace Student_Management_System
             this.teachRefreshTable_btn = new System.Windows.Forms.Button();
             this.teakenInsert = new System.Windows.Forms.TabPage();
             this.groupBox15 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.takenGrade_updwn = new System.Windows.Forms.NumericUpDown();
             this.takenGrade_lbl = new System.Windows.Forms.Label();
             this.takenClassId_updwn = new System.Windows.Forms.NumericUpDown();
@@ -182,6 +233,8 @@ namespace Student_Management_System
             this.takenRefreshTable_btn = new System.Windows.Forms.Button();
             this.clubInsert = new System.Windows.Forms.TabPage();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.clubDelete_btn = new System.Windows.Forms.Button();
             this.clubUpdate_btn = new System.Windows.Forms.Button();
             this.clubEmail_txt = new System.Windows.Forms.MaskedTextBox();
@@ -198,6 +251,8 @@ namespace Student_Management_System
             this.clubRefreshTable_btn = new System.Windows.Forms.Button();
             this.memberInsert = new System.Windows.Forms.TabPage();
             this.groupBox17 = new System.Windows.Forms.GroupBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.memberClubId_updwn = new System.Windows.Forms.NumericUpDown();
             this.memberUin_updwn = new System.Windows.Forms.NumericUpDown();
             this.memberClubId_lbl = new System.Windows.Forms.Label();
@@ -217,9 +272,9 @@ namespace Student_Management_System
             this.member_GridView = new System.Windows.Forms.DataGridView();
             this.memberRefreshTable_btn = new System.Windows.Forms.Button();
             this.presidentInsert = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.connectToServerBtn = new System.Windows.Forms.Button();
             this.groupBox19 = new System.Windows.Forms.GroupBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             this.presidentClubId_updwn = new System.Windows.Forms.NumericUpDown();
             this.presidentUin_updwn = new System.Windows.Forms.NumericUpDown();
             this.presidentClubId_lbl = new System.Windows.Forms.Label();
@@ -238,27 +293,57 @@ namespace Student_Management_System
             this.presidentUpdateTable_btn = new System.Windows.Forms.Button();
             this.president_GridView = new System.Windows.Forms.DataGridView();
             this.presidentRefreshTable_btn = new System.Windows.Forms.Button();
-            this.studentPrimaryKey_lbl = new System.Windows.Forms.Label();
-            this.studentForeignKey_lbl = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabControl3 = new System.Windows.Forms.TabControl();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.groupBox28 = new System.Windows.Forms.GroupBox();
+            this.appStudentInformation_btn = new System.Windows.Forms.Button();
+            this.label55 = new System.Windows.Forms.Label();
+            this.appStudentUin_updwn = new System.Windows.Forms.NumericUpDown();
+            this.groupBox29 = new System.Windows.Forms.GroupBox();
+            this.studentPresident_GridView = new System.Windows.Forms.DataGridView();
+            this.label50 = new System.Windows.Forms.Label();
+            this.studentClubMembership_GridView = new System.Windows.Forms.DataGridView();
+            this.label49 = new System.Windows.Forms.Label();
+            this.studentPersonalInformation_GridView = new System.Windows.Forms.DataGridView();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.studentGpa_GridView = new System.Windows.Forms.DataGridView();
+            this.studentCoursesTaken_GridView = new System.Windows.Forms.DataGridView();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.groupBox26 = new System.Windows.Forms.GroupBox();
+            this.appPrefessorLookUp_btn = new System.Windows.Forms.Button();
+            this.label40 = new System.Windows.Forms.Label();
+            this.appProfessorId_updown = new System.Windows.Forms.NumericUpDown();
+            this.groupBox27 = new System.Windows.Forms.GroupBox();
+            this.professorPersonalInformation_GridView = new System.Windows.Forms.DataGridView();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.professorCourseTaught_GridView = new System.Windows.Forms.DataGridView();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.label41 = new System.Windows.Forms.Label();
+            this.groupBox30 = new System.Windows.Forms.GroupBox();
+            this.appCourseLookUp_btn = new System.Windows.Forms.Button();
+            this.label42 = new System.Windows.Forms.Label();
+            this.groupBox31 = new System.Windows.Forms.GroupBox();
+            this.courseHistory_GridView = new System.Windows.Forms.DataGridView();
+            this.appCourseCode_txt = new System.Windows.Forms.TextBox();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.groupBox23.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.avgNStudentPerClub_updwn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nClub_updwn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avgNStudentPerClass_updwn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nClasses_updwn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nCourse_updwn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nStudent_updwn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nProfessor_updwn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nDepartment_updwn)).BeginInit();
+            this.groupBox22.SuspendLayout();
+            this.groupBox21.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.departmentInsert.SuspendLayout();
@@ -324,7 +409,6 @@ namespace Student_Management_System
             ((System.ComponentModel.ISupportInitialize)(this.memberUin_GridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.member_GridView)).BeginInit();
             this.presidentInsert.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             this.groupBox19.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.presidentClubId_updwn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.presidentUin_updwn)).BeginInit();
@@ -332,17 +416,516 @@ namespace Student_Management_System
             ((System.ComponentModel.ISupportInitialize)(this.presidentClubId_GridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.presidentUin_GridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.president_GridView)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            this.tabControl3.SuspendLayout();
+            this.tabPage6.SuspendLayout();
+            this.groupBox28.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.appStudentUin_updwn)).BeginInit();
+            this.groupBox29.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.studentPresident_GridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentClubMembership_GridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentPersonalInformation_GridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentGpa_GridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentCoursesTaken_GridView)).BeginInit();
+            this.tabPage5.SuspendLayout();
+            this.groupBox26.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.appProfessorId_updown)).BeginInit();
+            this.groupBox27.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.professorPersonalInformation_GridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.professorCourseTaught_GridView)).BeginInit();
+            this.tabPage7.SuspendLayout();
+            this.groupBox30.SuspendLayout();
+            this.groupBox31.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.courseHistory_GridView)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1160, 737);
             this.tabControl1.TabIndex = 20;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.groupBox23);
+            this.tabPage2.Controls.Add(this.groupBox22);
+            this.tabPage2.Controls.Add(this.groupBox21);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1152, 711);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Data Generation";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox23
+            // 
+            this.groupBox23.Controls.Add(this.dataGenerateStatus_lbl);
+            this.groupBox23.Controls.Add(this.avgNStudentPerClub_updwn);
+            this.groupBox23.Controls.Add(this.label32);
+            this.groupBox23.Controls.Add(this.label30);
+            this.groupBox23.Controls.Add(this.nClub_updwn);
+            this.groupBox23.Controls.Add(this.label29);
+            this.groupBox23.Controls.Add(this.avgNStudentPerClass_updwn);
+            this.groupBox23.Controls.Add(this.label28);
+            this.groupBox23.Controls.Add(this.nClasses_updwn);
+            this.groupBox23.Controls.Add(this.label27);
+            this.groupBox23.Controls.Add(this.nCourse_updwn);
+            this.groupBox23.Controls.Add(this.label26);
+            this.groupBox23.Controls.Add(this.nStudent_updwn);
+            this.groupBox23.Controls.Add(this.label25);
+            this.groupBox23.Controls.Add(this.nProfessor_updwn);
+            this.groupBox23.Controls.Add(this.label24);
+            this.groupBox23.Controls.Add(this.nDepartment_updwn);
+            this.groupBox23.Controls.Add(this.nDepartment_lbl);
+            this.groupBox23.Controls.Add(this.label23);
+            this.groupBox23.Controls.Add(this.generateData_btn);
+            this.groupBox23.Enabled = false;
+            this.groupBox23.Location = new System.Drawing.Point(6, 168);
+            this.groupBox23.Name = "groupBox23";
+            this.groupBox23.Size = new System.Drawing.Size(1140, 145);
+            this.groupBox23.TabIndex = 8;
+            this.groupBox23.TabStop = false;
+            this.groupBox23.Text = "Generating Data";
+            // 
+            // dataGenerateStatus_lbl
+            // 
+            this.dataGenerateStatus_lbl.AutoSize = true;
+            this.dataGenerateStatus_lbl.Location = new System.Drawing.Point(179, 121);
+            this.dataGenerateStatus_lbl.Name = "dataGenerateStatus_lbl";
+            this.dataGenerateStatus_lbl.Size = new System.Drawing.Size(82, 13);
+            this.dataGenerateStatus_lbl.TabIndex = 7;
+            this.dataGenerateStatus_lbl.Text = "Has not started!";
+            // 
+            // avgNStudentPerClub_updwn
+            // 
+            this.avgNStudentPerClub_updwn.Location = new System.Drawing.Point(447, 81);
+            this.avgNStudentPerClub_updwn.Maximum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            0});
+            this.avgNStudentPerClub_updwn.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.avgNStudentPerClub_updwn.Name = "avgNStudentPerClub_updwn";
+            this.avgNStudentPerClub_updwn.Size = new System.Drawing.Size(58, 20);
+            this.avgNStudentPerClub_updwn.TabIndex = 22;
+            this.avgNStudentPerClub_updwn.Value = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(143, 121);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(40, 13);
+            this.label32.TabIndex = 6;
+            this.label32.Text = "Status:";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(281, 83);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(160, 13);
+            this.label30.TabIndex = 21;
+            this.label30.Text = "Average # of Students Per Club:";
+            // 
+            // nClub_updwn
+            // 
+            this.nClub_updwn.Location = new System.Drawing.Point(967, 52);
+            this.nClub_updwn.Maximum = new decimal(new int[] {
+            188,
+            0,
+            0,
+            0});
+            this.nClub_updwn.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nClub_updwn.Name = "nClub_updwn";
+            this.nClub_updwn.Size = new System.Drawing.Size(58, 20);
+            this.nClub_updwn.TabIndex = 20;
+            this.nClub_updwn.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(903, 54);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(58, 13);
+            this.label29.TabIndex = 19;
+            this.label29.Text = "# of Clubs:";
+            // 
+            // avgNStudentPerClass_updwn
+            // 
+            this.avgNStudentPerClass_updwn.Location = new System.Drawing.Point(190, 81);
+            this.avgNStudentPerClass_updwn.Maximum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            0});
+            this.avgNStudentPerClass_updwn.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.avgNStudentPerClass_updwn.Name = "avgNStudentPerClass_updwn";
+            this.avgNStudentPerClass_updwn.Size = new System.Drawing.Size(58, 20);
+            this.avgNStudentPerClass_updwn.TabIndex = 18;
+            this.avgNStudentPerClass_updwn.Value = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(14, 83);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(164, 13);
+            this.label28.TabIndex = 17;
+            this.label28.Text = "Average # of Students Per Class:";
+            // 
+            // nClasses_updwn
+            // 
+            this.nClasses_updwn.Location = new System.Drawing.Point(814, 52);
+            this.nClasses_updwn.Maximum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            0});
+            this.nClasses_updwn.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nClasses_updwn.Name = "nClasses_updwn";
+            this.nClasses_updwn.Size = new System.Drawing.Size(58, 20);
+            this.nClasses_updwn.TabIndex = 16;
+            this.nClasses_updwn.Value = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(740, 54);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(68, 13);
+            this.label27.TabIndex = 15;
+            this.label27.Text = "# of Classes:";
+            // 
+            // nCourse_updwn
+            // 
+            this.nCourse_updwn.Location = new System.Drawing.Point(651, 52);
+            this.nCourse_updwn.Maximum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            0});
+            this.nCourse_updwn.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nCourse_updwn.Name = "nCourse_updwn";
+            this.nCourse_updwn.Size = new System.Drawing.Size(58, 20);
+            this.nCourse_updwn.TabIndex = 14;
+            this.nCourse_updwn.Value = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(575, 54);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(70, 13);
+            this.label26.TabIndex = 13;
+            this.label26.Text = "# of Courses:";
+            // 
+            // nStudent_updwn
+            // 
+            this.nStudent_updwn.Location = new System.Drawing.Point(477, 52);
+            this.nStudent_updwn.Maximum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            0});
+            this.nStudent_updwn.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nStudent_updwn.Name = "nStudent_updwn";
+            this.nStudent_updwn.Size = new System.Drawing.Size(58, 20);
+            this.nStudent_updwn.TabIndex = 12;
+            this.nStudent_updwn.Value = new decimal(new int[] {
+            1500,
+            0,
+            0,
+            0});
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(397, 54);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(74, 13);
+            this.label25.TabIndex = 11;
+            this.label25.Text = "# of Students:";
+            // 
+            // nProfessor_updwn
+            // 
+            this.nProfessor_updwn.Location = new System.Drawing.Point(293, 52);
+            this.nProfessor_updwn.Maximum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            0});
+            this.nProfessor_updwn.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nProfessor_updwn.Name = "nProfessor_updwn";
+            this.nProfessor_updwn.Size = new System.Drawing.Size(58, 20);
+            this.nProfessor_updwn.TabIndex = 10;
+            this.nProfessor_updwn.Value = new decimal(new int[] {
+            150,
+            0,
+            0,
+            0});
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(206, 54);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(81, 13);
+            this.label24.TabIndex = 9;
+            this.label24.Text = "# of Professors:";
+            // 
+            // nDepartment_updwn
+            // 
+            this.nDepartment_updwn.Location = new System.Drawing.Point(107, 52);
+            this.nDepartment_updwn.Maximum = new decimal(new int[] {
+            129,
+            0,
+            0,
+            0});
+            this.nDepartment_updwn.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nDepartment_updwn.Name = "nDepartment_updwn";
+            this.nDepartment_updwn.Size = new System.Drawing.Size(58, 20);
+            this.nDepartment_updwn.TabIndex = 8;
+            this.nDepartment_updwn.Value = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            // 
+            // nDepartment_lbl
+            // 
+            this.nDepartment_lbl.AutoSize = true;
+            this.nDepartment_lbl.Location = new System.Drawing.Point(14, 54);
+            this.nDepartment_lbl.Name = "nDepartment_lbl";
+            this.nDepartment_lbl.Size = new System.Drawing.Size(92, 13);
+            this.nDepartment_lbl.TabIndex = 7;
+            this.nDepartment_lbl.Text = "# of Departments:";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(14, 28);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(446, 13);
+            this.label23.TabIndex = 6;
+            this.label23.Text = "Please set the values to get the desire database with randomly generated data fro" +
+    "m real data!";
+            // 
+            // generateData_btn
+            // 
+            this.generateData_btn.Location = new System.Drawing.Point(17, 116);
+            this.generateData_btn.Name = "generateData_btn";
+            this.generateData_btn.Size = new System.Drawing.Size(110, 23);
+            this.generateData_btn.TabIndex = 1;
+            this.generateData_btn.Text = "Generate Data";
+            this.generateData_btn.UseVisualStyleBackColor = true;
+            this.generateData_btn.Click += new System.EventHandler(this.generateData_btn_Click);
+            // 
+            // groupBox22
+            // 
+            this.groupBox22.Controls.Add(this.deleteStatus_lbl);
+            this.groupBox22.Controls.Add(this.label22);
+            this.groupBox22.Controls.Add(this.label21);
+            this.groupBox22.Controls.Add(this.deleteAllEntries_btn);
+            this.groupBox22.Enabled = false;
+            this.groupBox22.Location = new System.Drawing.Point(6, 89);
+            this.groupBox22.Name = "groupBox22";
+            this.groupBox22.Size = new System.Drawing.Size(1140, 79);
+            this.groupBox22.TabIndex = 7;
+            this.groupBox22.TabStop = false;
+            this.groupBox22.Text = "Deleting All The Data";
+            // 
+            // deleteStatus_lbl
+            // 
+            this.deleteStatus_lbl.AutoSize = true;
+            this.deleteStatus_lbl.Location = new System.Drawing.Point(179, 55);
+            this.deleteStatus_lbl.Name = "deleteStatus_lbl";
+            this.deleteStatus_lbl.Size = new System.Drawing.Size(82, 13);
+            this.deleteStatus_lbl.TabIndex = 5;
+            this.deleteStatus_lbl.Text = "Has not started!";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(143, 55);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(40, 13);
+            this.label22.TabIndex = 4;
+            this.label22.Text = "Status:";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(14, 25);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(464, 13);
+            this.label21.TabIndex = 3;
+            this.label21.Text = "Please use this option before using data generation, unless if you really know wh" +
+    "at you are doing.";
+            // 
+            // deleteAllEntries_btn
+            // 
+            this.deleteAllEntries_btn.Location = new System.Drawing.Point(17, 50);
+            this.deleteAllEntries_btn.Name = "deleteAllEntries_btn";
+            this.deleteAllEntries_btn.Size = new System.Drawing.Size(110, 23);
+            this.deleteAllEntries_btn.TabIndex = 2;
+            this.deleteAllEntries_btn.Text = "Delete All Entries";
+            this.deleteAllEntries_btn.UseVisualStyleBackColor = true;
+            this.deleteAllEntries_btn.Click += new System.EventHandler(this.deleteAllEntries_btn_Click);
+            // 
+            // groupBox21
+            // 
+            this.groupBox21.Controls.Add(this.serverIp_txt);
+            this.groupBox21.Controls.Add(this.label31);
+            this.groupBox21.Controls.Add(this.databaseName_txt);
+            this.groupBox21.Controls.Add(this.databaseName_lbl);
+            this.groupBox21.Controls.Add(this.password_txt);
+            this.groupBox21.Controls.Add(this.password_lbl);
+            this.groupBox21.Controls.Add(this.username_txt);
+            this.groupBox21.Controls.Add(this.username_lbl);
+            this.groupBox21.Controls.Add(this.connectToServerBtn);
+            this.groupBox21.Location = new System.Drawing.Point(6, 12);
+            this.groupBox21.Name = "groupBox21";
+            this.groupBox21.Size = new System.Drawing.Size(1140, 76);
+            this.groupBox21.TabIndex = 3;
+            this.groupBox21.TabStop = false;
+            this.groupBox21.Text = "Connect to MySQL Database";
+            // 
+            // serverIp_txt
+            // 
+            this.serverIp_txt.Location = new System.Drawing.Point(78, 48);
+            this.serverIp_txt.Name = "serverIp_txt";
+            this.serverIp_txt.Size = new System.Drawing.Size(175, 20);
+            this.serverIp_txt.TabIndex = 8;
+            this.serverIp_txt.Text = "127.0.0.1";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(14, 51);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(54, 13);
+            this.label31.TabIndex = 7;
+            this.label31.Text = "Server IP:";
+            // 
+            // databaseName_txt
+            // 
+            this.databaseName_txt.Location = new System.Drawing.Point(743, 21);
+            this.databaseName_txt.Name = "databaseName_txt";
+            this.databaseName_txt.Size = new System.Drawing.Size(175, 20);
+            this.databaseName_txt.TabIndex = 6;
+            this.databaseName_txt.Text = "studentDb";
+            // 
+            // databaseName_lbl
+            // 
+            this.databaseName_lbl.AutoSize = true;
+            this.databaseName_lbl.Location = new System.Drawing.Point(650, 24);
+            this.databaseName_lbl.Name = "databaseName_lbl";
+            this.databaseName_lbl.Size = new System.Drawing.Size(87, 13);
+            this.databaseName_lbl.TabIndex = 5;
+            this.databaseName_lbl.Text = "Database Name:";
+            // 
+            // password_txt
+            // 
+            this.password_txt.Location = new System.Drawing.Point(395, 21);
+            this.password_txt.Name = "password_txt";
+            this.password_txt.Size = new System.Drawing.Size(175, 20);
+            this.password_txt.TabIndex = 4;
+            this.password_txt.Text = "i am c#";
+            // 
+            // password_lbl
+            // 
+            this.password_lbl.AutoSize = true;
+            this.password_lbl.Location = new System.Drawing.Point(333, 24);
+            this.password_lbl.Name = "password_lbl";
+            this.password_lbl.Size = new System.Drawing.Size(56, 13);
+            this.password_lbl.TabIndex = 3;
+            this.password_lbl.Text = "Password:";
+            // 
+            // username_txt
+            // 
+            this.username_txt.Location = new System.Drawing.Point(78, 21);
+            this.username_txt.Name = "username_txt";
+            this.username_txt.Size = new System.Drawing.Size(175, 20);
+            this.username_txt.TabIndex = 2;
+            this.username_txt.Text = "CSharp";
+            // 
+            // username_lbl
+            // 
+            this.username_lbl.AutoSize = true;
+            this.username_lbl.Location = new System.Drawing.Point(14, 24);
+            this.username_lbl.Name = "username_lbl";
+            this.username_lbl.Size = new System.Drawing.Size(58, 13);
+            this.username_lbl.TabIndex = 1;
+            this.username_lbl.Text = "Username:";
+            // 
+            // connectToServerBtn
+            // 
+            this.connectToServerBtn.Location = new System.Drawing.Point(998, 19);
+            this.connectToServerBtn.Name = "connectToServerBtn";
+            this.connectToServerBtn.Size = new System.Drawing.Size(110, 23);
+            this.connectToServerBtn.TabIndex = 0;
+            this.connectToServerBtn.Text = "Connect to MySQL";
+            this.connectToServerBtn.UseVisualStyleBackColor = true;
+            this.connectToServerBtn.Click += new System.EventHandler(this.connectToServer_Click);
             // 
             // tabPage1
             // 
@@ -352,7 +935,7 @@ namespace Student_Management_System
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1152, 711);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Insert Entry";
+            this.tabPage1.Text = "Basic Database Interaction";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabControl2
@@ -406,6 +989,26 @@ namespace Student_Management_System
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tuple Operations";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Blue;
+            this.label1.Location = new System.Drawing.Point(818, 59);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 13);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Foreign Key";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(750, 59);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 13);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Primary Key";
             // 
             // delete_btn
             // 
@@ -593,6 +1196,26 @@ namespace Student_Management_System
             this.groupBox3.TabIndex = 17;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Tuple Operations";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Blue;
+            this.label4.Location = new System.Drawing.Point(818, 59);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(63, 13);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Foreign Key";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(750, 59);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(62, 13);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Primary Key";
             // 
             // profBirthdate_date
             // 
@@ -799,6 +1422,26 @@ namespace Student_Management_System
             this.groupBox5.TabIndex = 19;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Tuple Operations";
+            // 
+            // studentForeignKey_lbl
+            // 
+            this.studentForeignKey_lbl.AutoSize = true;
+            this.studentForeignKey_lbl.ForeColor = System.Drawing.Color.Blue;
+            this.studentForeignKey_lbl.Location = new System.Drawing.Point(818, 59);
+            this.studentForeignKey_lbl.Name = "studentForeignKey_lbl";
+            this.studentForeignKey_lbl.Size = new System.Drawing.Size(63, 13);
+            this.studentForeignKey_lbl.TabIndex = 15;
+            this.studentForeignKey_lbl.Text = "Foreign Key";
+            // 
+            // studentPrimaryKey_lbl
+            // 
+            this.studentPrimaryKey_lbl.AutoSize = true;
+            this.studentPrimaryKey_lbl.ForeColor = System.Drawing.Color.Red;
+            this.studentPrimaryKey_lbl.Location = new System.Drawing.Point(750, 59);
+            this.studentPrimaryKey_lbl.Name = "studentPrimaryKey_lbl";
+            this.studentPrimaryKey_lbl.Size = new System.Drawing.Size(62, 13);
+            this.studentPrimaryKey_lbl.TabIndex = 14;
+            this.studentPrimaryKey_lbl.Text = "Primary Key";
             // 
             // studentDepId_updwn
             // 
@@ -1059,6 +1702,26 @@ namespace Student_Management_System
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Tuple Operations";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Blue;
+            this.label7.Location = new System.Drawing.Point(818, 59);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(63, 13);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Foreign Key";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.Red;
+            this.label8.Location = new System.Drawing.Point(750, 59);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(62, 13);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Primary Key";
+            // 
             // courseCredit_updwn
             // 
             this.courseCredit_updwn.Location = new System.Drawing.Point(763, 21);
@@ -1284,6 +1947,26 @@ namespace Student_Management_System
             this.groupBox9.TabIndex = 23;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Tuple Operations";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Blue;
+            this.label9.Location = new System.Drawing.Point(818, 59);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(63, 13);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "Foreign Key";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.Red;
+            this.label10.Location = new System.Drawing.Point(750, 59);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(62, 13);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "Primary Key";
             // 
             // classId_updwn
             // 
@@ -1512,6 +2195,26 @@ namespace Student_Management_System
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "Tuple Operations";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.Blue;
+            this.label11.Location = new System.Drawing.Point(818, 59);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(63, 13);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "Foreign Key";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.Color.Red;
+            this.label12.Location = new System.Drawing.Point(750, 59);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(62, 13);
+            this.label12.TabIndex = 17;
+            this.label12.Text = "Primary Key";
+            // 
             // teachClassId_updwn
             // 
             this.teachClassId_updwn.Location = new System.Drawing.Point(342, 23);
@@ -1738,6 +2441,26 @@ namespace Student_Management_System
             this.groupBox15.TabIndex = 27;
             this.groupBox15.TabStop = false;
             this.groupBox15.Text = "Tuple Operations";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.Color.Blue;
+            this.label13.Location = new System.Drawing.Point(818, 59);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(63, 13);
+            this.label13.TabIndex = 20;
+            this.label13.Text = "Foreign Key";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.Red;
+            this.label14.Location = new System.Drawing.Point(750, 59);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(62, 13);
+            this.label14.TabIndex = 19;
+            this.label14.Text = "Primary Key";
             // 
             // takenGrade_updwn
             // 
@@ -1989,6 +2712,26 @@ namespace Student_Management_System
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Tuple Operations";
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.ForeColor = System.Drawing.Color.Blue;
+            this.label15.Location = new System.Drawing.Point(818, 59);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(63, 13);
+            this.label15.TabIndex = 17;
+            this.label15.Text = "Foreign Key";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.ForeColor = System.Drawing.Color.Red;
+            this.label16.Location = new System.Drawing.Point(750, 59);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(62, 13);
+            this.label16.TabIndex = 16;
+            this.label16.Text = "Primary Key";
+            // 
             // clubDelete_btn
             // 
             this.clubDelete_btn.Location = new System.Drawing.Point(1050, 57);
@@ -2153,6 +2896,26 @@ namespace Student_Management_System
             this.groupBox17.TabIndex = 29;
             this.groupBox17.TabStop = false;
             this.groupBox17.Text = "Tuple Operations";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.ForeColor = System.Drawing.Color.Blue;
+            this.label17.Location = new System.Drawing.Point(818, 59);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(63, 13);
+            this.label17.TabIndex = 18;
+            this.label17.Text = "Foreign Key";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.ForeColor = System.Drawing.Color.Red;
+            this.label18.Location = new System.Drawing.Point(750, 59);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(62, 13);
+            this.label18.TabIndex = 17;
+            this.label18.Text = "Primary Key";
             // 
             // memberClubId_updwn
             // 
@@ -2361,27 +3124,6 @@ namespace Student_Management_System
             this.presidentInsert.Text = "President";
             this.presidentInsert.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.connectToServerBtn);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1152, 711);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // connectToServerBtn
-            // 
-            this.connectToServerBtn.Location = new System.Drawing.Point(99, 81);
-            this.connectToServerBtn.Name = "connectToServerBtn";
-            this.connectToServerBtn.Size = new System.Drawing.Size(110, 23);
-            this.connectToServerBtn.TabIndex = 0;
-            this.connectToServerBtn.Text = "Connect to MySQL";
-            this.connectToServerBtn.UseVisualStyleBackColor = true;
-            this.connectToServerBtn.Click += new System.EventHandler(this.connectToServer_Click);
-            // 
             // groupBox19
             // 
             this.groupBox19.Controls.Add(this.label19);
@@ -2399,6 +3141,26 @@ namespace Student_Management_System
             this.groupBox19.TabIndex = 31;
             this.groupBox19.TabStop = false;
             this.groupBox19.Text = "Tuple Operations";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.ForeColor = System.Drawing.Color.Blue;
+            this.label19.Location = new System.Drawing.Point(818, 59);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(63, 13);
+            this.label19.TabIndex = 18;
+            this.label19.Text = "Foreign Key";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.ForeColor = System.Drawing.Color.Red;
+            this.label20.Location = new System.Drawing.Point(750, 59);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(62, 13);
+            this.label20.TabIndex = 17;
+            this.label20.Text = "Primary Key";
             // 
             // presidentClubId_updwn
             // 
@@ -2596,205 +3358,429 @@ namespace Student_Management_System
             this.presidentRefreshTable_btn.UseVisualStyleBackColor = true;
             this.presidentRefreshTable_btn.Click += new System.EventHandler(this.presidentRefreshTable_btn_Click);
             // 
-            // studentPrimaryKey_lbl
+            // tabPage3
             // 
-            this.studentPrimaryKey_lbl.AutoSize = true;
-            this.studentPrimaryKey_lbl.ForeColor = System.Drawing.Color.Red;
-            this.studentPrimaryKey_lbl.Location = new System.Drawing.Point(750, 59);
-            this.studentPrimaryKey_lbl.Name = "studentPrimaryKey_lbl";
-            this.studentPrimaryKey_lbl.Size = new System.Drawing.Size(62, 13);
-            this.studentPrimaryKey_lbl.TabIndex = 14;
-            this.studentPrimaryKey_lbl.Text = "Primary Key";
+            this.tabPage3.Controls.Add(this.tabControl3);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(1152, 711);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Application";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // studentForeignKey_lbl
+            // tabControl3
             // 
-            this.studentForeignKey_lbl.AutoSize = true;
-            this.studentForeignKey_lbl.ForeColor = System.Drawing.Color.Blue;
-            this.studentForeignKey_lbl.Location = new System.Drawing.Point(818, 59);
-            this.studentForeignKey_lbl.Name = "studentForeignKey_lbl";
-            this.studentForeignKey_lbl.Size = new System.Drawing.Size(63, 13);
-            this.studentForeignKey_lbl.TabIndex = 15;
-            this.studentForeignKey_lbl.Text = "Foreign Key";
+            this.tabControl3.Controls.Add(this.tabPage6);
+            this.tabControl3.Controls.Add(this.tabPage5);
+            this.tabControl3.Controls.Add(this.tabPage7);
+            this.tabControl3.Location = new System.Drawing.Point(6, 6);
+            this.tabControl3.Name = "tabControl3";
+            this.tabControl3.SelectedIndex = 0;
+            this.tabControl3.Size = new System.Drawing.Size(1140, 699);
+            this.tabControl3.TabIndex = 31;
             // 
-            // label1
+            // tabPage6
             // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(818, 59);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 13);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Foreign Key";
+            this.tabPage6.Controls.Add(this.groupBox28);
+            this.tabPage6.Controls.Add(this.groupBox29);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Size = new System.Drawing.Size(1132, 673);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "Students";
+            this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // groupBox28
             // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(750, 59);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 13);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Primary Key";
+            this.groupBox28.Controls.Add(this.appStudentInformation_btn);
+            this.groupBox28.Controls.Add(this.label55);
+            this.groupBox28.Controls.Add(this.appStudentUin_updwn);
+            this.groupBox28.Location = new System.Drawing.Point(6, 6);
+            this.groupBox28.Name = "groupBox28";
+            this.groupBox28.Size = new System.Drawing.Size(1120, 55);
+            this.groupBox28.TabIndex = 19;
+            this.groupBox28.TabStop = false;
+            this.groupBox28.Text = "Enter Student\'s UIN";
             // 
-            // label4
+            // appStudentInformation_btn
             // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.Blue;
-            this.label4.Location = new System.Drawing.Point(818, 59);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 13);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "Foreign Key";
+            this.appStudentInformation_btn.Location = new System.Drawing.Point(178, 21);
+            this.appStudentInformation_btn.Name = "appStudentInformation_btn";
+            this.appStudentInformation_btn.Size = new System.Drawing.Size(188, 22);
+            this.appStudentInformation_btn.TabIndex = 6;
+            this.appStudentInformation_btn.Text = "Look Up Student\'s Information";
+            this.appStudentInformation_btn.UseVisualStyleBackColor = true;
+            this.appStudentInformation_btn.Click += new System.EventHandler(this.appStudentInformation_btn_Click);
             // 
-            // label6
+            // label55
             // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(750, 59);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 13);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Primary Key";
+            this.label55.AutoSize = true;
+            this.label55.ForeColor = System.Drawing.Color.Red;
+            this.label55.Location = new System.Drawing.Point(21, 25);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(29, 13);
+            this.label55.TabIndex = 2;
+            this.label55.Text = "UIN:";
             // 
-            // label7
+            // appStudentUin_updwn
             // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.Blue;
-            this.label7.Location = new System.Drawing.Point(818, 59);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 13);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "Foreign Key";
+            this.appStudentUin_updwn.Location = new System.Drawing.Point(56, 23);
+            this.appStudentUin_updwn.Maximum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            0});
+            this.appStudentUin_updwn.Name = "appStudentUin_updwn";
+            this.appStudentUin_updwn.Size = new System.Drawing.Size(97, 20);
+            this.appStudentUin_updwn.TabIndex = 1;
+            this.appStudentUin_updwn.Value = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             // 
-            // label8
+            // groupBox29
             // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(750, 59);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(62, 13);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "Primary Key";
+            this.groupBox29.Controls.Add(this.label41);
+            this.groupBox29.Controls.Add(this.studentPresident_GridView);
+            this.groupBox29.Controls.Add(this.label50);
+            this.groupBox29.Controls.Add(this.studentClubMembership_GridView);
+            this.groupBox29.Controls.Add(this.label49);
+            this.groupBox29.Controls.Add(this.studentPersonalInformation_GridView);
+            this.groupBox29.Controls.Add(this.label48);
+            this.groupBox29.Controls.Add(this.label56);
+            this.groupBox29.Controls.Add(this.label57);
+            this.groupBox29.Controls.Add(this.studentGpa_GridView);
+            this.groupBox29.Controls.Add(this.studentCoursesTaken_GridView);
+            this.groupBox29.Location = new System.Drawing.Point(6, 67);
+            this.groupBox29.Name = "groupBox29";
+            this.groupBox29.Size = new System.Drawing.Size(1120, 600);
+            this.groupBox29.TabIndex = 18;
+            this.groupBox29.TabStop = false;
+            this.groupBox29.Text = "Student\'s Information";
             // 
-            // label9
+            // studentPresident_GridView
             // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.Blue;
-            this.label9.Location = new System.Drawing.Point(818, 59);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(63, 13);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "Foreign Key";
+            this.studentPresident_GridView.AllowUserToAddRows = false;
+            this.studentPresident_GridView.AllowUserToDeleteRows = false;
+            this.studentPresident_GridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.studentPresident_GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.studentPresident_GridView.Location = new System.Drawing.Point(758, 339);
+            this.studentPresident_GridView.Name = "studentPresident_GridView";
+            this.studentPresident_GridView.ReadOnly = true;
+            this.studentPresident_GridView.Size = new System.Drawing.Size(336, 255);
+            this.studentPresident_GridView.TabIndex = 22;
             // 
-            // label10
+            // label50
             // 
-            this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(750, 59);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(62, 13);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "Primary Key";
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(755, 323);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(78, 13);
+            this.label50.TabIndex = 21;
+            this.label50.Text = "Club President:";
             // 
-            // label11
+            // studentClubMembership_GridView
             // 
-            this.label11.AutoSize = true;
-            this.label11.ForeColor = System.Drawing.Color.Blue;
-            this.label11.Location = new System.Drawing.Point(818, 59);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(63, 13);
-            this.label11.TabIndex = 18;
-            this.label11.Text = "Foreign Key";
+            this.studentClubMembership_GridView.AllowUserToAddRows = false;
+            this.studentClubMembership_GridView.AllowUserToDeleteRows = false;
+            this.studentClubMembership_GridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.studentClubMembership_GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.studentClubMembership_GridView.Location = new System.Drawing.Point(758, 40);
+            this.studentClubMembership_GridView.Name = "studentClubMembership_GridView";
+            this.studentClubMembership_GridView.ReadOnly = true;
+            this.studentClubMembership_GridView.Size = new System.Drawing.Size(336, 255);
+            this.studentClubMembership_GridView.TabIndex = 20;
             // 
-            // label12
+            // label49
             // 
-            this.label12.AutoSize = true;
-            this.label12.ForeColor = System.Drawing.Color.Red;
-            this.label12.Location = new System.Drawing.Point(750, 59);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(62, 13);
-            this.label12.TabIndex = 17;
-            this.label12.Text = "Primary Key";
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(757, 24);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(91, 13);
+            this.label49.TabIndex = 19;
+            this.label49.Text = "Club Membership:";
             // 
-            // label13
+            // studentPersonalInformation_GridView
             // 
-            this.label13.AutoSize = true;
-            this.label13.ForeColor = System.Drawing.Color.Blue;
-            this.label13.Location = new System.Drawing.Point(818, 59);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(63, 13);
-            this.label13.TabIndex = 20;
-            this.label13.Text = "Foreign Key";
+            this.studentPersonalInformation_GridView.AllowUserToAddRows = false;
+            this.studentPersonalInformation_GridView.AllowUserToDeleteRows = false;
+            this.studentPersonalInformation_GridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.studentPersonalInformation_GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.studentPersonalInformation_GridView.Location = new System.Drawing.Point(22, 40);
+            this.studentPersonalInformation_GridView.Name = "studentPersonalInformation_GridView";
+            this.studentPersonalInformation_GridView.ReadOnly = true;
+            this.studentPersonalInformation_GridView.Size = new System.Drawing.Size(700, 45);
+            this.studentPersonalInformation_GridView.TabIndex = 18;
             // 
-            // label14
+            // label48
             // 
-            this.label14.AutoSize = true;
-            this.label14.ForeColor = System.Drawing.Color.Red;
-            this.label14.Location = new System.Drawing.Point(750, 59);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(62, 13);
-            this.label14.TabIndex = 19;
-            this.label14.Text = "Primary Key";
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(21, 24);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(106, 13);
+            this.label48.TabIndex = 17;
+            this.label48.Text = "Personal Information:";
             // 
-            // label15
+            // label56
             // 
-            this.label15.AutoSize = true;
-            this.label15.ForeColor = System.Drawing.Color.Blue;
-            this.label15.Location = new System.Drawing.Point(818, 59);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(63, 13);
-            this.label15.TabIndex = 17;
-            this.label15.Text = "Foreign Key";
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(21, 190);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(85, 13);
+            this.label56.TabIndex = 15;
+            this.label56.Text = "Courses Taken: ";
             // 
-            // label16
+            // label57
             // 
-            this.label16.AutoSize = true;
-            this.label16.ForeColor = System.Drawing.Color.Red;
-            this.label16.Location = new System.Drawing.Point(750, 59);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(62, 13);
-            this.label16.TabIndex = 16;
-            this.label16.Text = "Primary Key";
+            this.label57.AutoSize = true;
+            this.label57.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label57.Location = new System.Drawing.Point(21, 105);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(114, 13);
+            this.label57.TabIndex = 14;
+            this.label57.Text = "GPA and Credit Hours:";
             // 
-            // label17
+            // studentGpa_GridView
             // 
-            this.label17.AutoSize = true;
-            this.label17.ForeColor = System.Drawing.Color.Blue;
-            this.label17.Location = new System.Drawing.Point(818, 59);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(63, 13);
-            this.label17.TabIndex = 18;
-            this.label17.Text = "Foreign Key";
+            this.studentGpa_GridView.AllowUserToAddRows = false;
+            this.studentGpa_GridView.AllowUserToDeleteRows = false;
+            this.studentGpa_GridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.studentGpa_GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.studentGpa_GridView.Location = new System.Drawing.Point(22, 121);
+            this.studentGpa_GridView.Name = "studentGpa_GridView";
+            this.studentGpa_GridView.ReadOnly = true;
+            this.studentGpa_GridView.Size = new System.Drawing.Size(700, 45);
+            this.studentGpa_GridView.TabIndex = 12;
             // 
-            // label18
+            // studentCoursesTaken_GridView
             // 
-            this.label18.AutoSize = true;
-            this.label18.ForeColor = System.Drawing.Color.Red;
-            this.label18.Location = new System.Drawing.Point(750, 59);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(62, 13);
-            this.label18.TabIndex = 17;
-            this.label18.Text = "Primary Key";
+            this.studentCoursesTaken_GridView.AllowUserToAddRows = false;
+            this.studentCoursesTaken_GridView.AllowUserToDeleteRows = false;
+            this.studentCoursesTaken_GridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.studentCoursesTaken_GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.studentCoursesTaken_GridView.Location = new System.Drawing.Point(22, 206);
+            this.studentCoursesTaken_GridView.Name = "studentCoursesTaken_GridView";
+            this.studentCoursesTaken_GridView.ReadOnly = true;
+            this.studentCoursesTaken_GridView.Size = new System.Drawing.Size(700, 388);
+            this.studentCoursesTaken_GridView.TabIndex = 9;
             // 
-            // label19
+            // tabPage5
             // 
-            this.label19.AutoSize = true;
-            this.label19.ForeColor = System.Drawing.Color.Blue;
-            this.label19.Location = new System.Drawing.Point(818, 59);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(63, 13);
-            this.label19.TabIndex = 18;
-            this.label19.Text = "Foreign Key";
+            this.tabPage5.Controls.Add(this.groupBox26);
+            this.tabPage5.Controls.Add(this.groupBox27);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Size = new System.Drawing.Size(1132, 673);
+            this.tabPage5.TabIndex = 6;
+            this.tabPage5.Text = "Professors";
+            this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // label20
+            // groupBox26
             // 
-            this.label20.AutoSize = true;
-            this.label20.ForeColor = System.Drawing.Color.Red;
-            this.label20.Location = new System.Drawing.Point(750, 59);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(62, 13);
-            this.label20.TabIndex = 17;
-            this.label20.Text = "Primary Key";
+            this.groupBox26.Controls.Add(this.appPrefessorLookUp_btn);
+            this.groupBox26.Controls.Add(this.label40);
+            this.groupBox26.Controls.Add(this.appProfessorId_updown);
+            this.groupBox26.Location = new System.Drawing.Point(6, 6);
+            this.groupBox26.Name = "groupBox26";
+            this.groupBox26.Size = new System.Drawing.Size(1120, 55);
+            this.groupBox26.TabIndex = 21;
+            this.groupBox26.TabStop = false;
+            this.groupBox26.Text = "Enter Professor\'s ID";
+            // 
+            // appPrefessorLookUp_btn
+            // 
+            this.appPrefessorLookUp_btn.Location = new System.Drawing.Point(224, 21);
+            this.appPrefessorLookUp_btn.Name = "appPrefessorLookUp_btn";
+            this.appPrefessorLookUp_btn.Size = new System.Drawing.Size(188, 22);
+            this.appPrefessorLookUp_btn.TabIndex = 6;
+            this.appPrefessorLookUp_btn.Text = "Look Up Professor\'s Information";
+            this.appPrefessorLookUp_btn.UseVisualStyleBackColor = true;
+            this.appPrefessorLookUp_btn.Click += new System.EventHandler(this.appPrefessorLookUp_btn_Click);
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.ForeColor = System.Drawing.Color.Red;
+            this.label40.Location = new System.Drawing.Point(21, 25);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(68, 13);
+            this.label40.TabIndex = 2;
+            this.label40.Text = "Professor ID:";
+            // 
+            // appProfessorId_updown
+            // 
+            this.appProfessorId_updown.Location = new System.Drawing.Point(95, 23);
+            this.appProfessorId_updown.Maximum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            0});
+            this.appProfessorId_updown.Name = "appProfessorId_updown";
+            this.appProfessorId_updown.Size = new System.Drawing.Size(97, 20);
+            this.appProfessorId_updown.TabIndex = 1;
+            this.appProfessorId_updown.Value = new decimal(new int[] {
+            1002,
+            0,
+            0,
+            0});
+            // 
+            // groupBox27
+            // 
+            this.groupBox27.Controls.Add(this.professorPersonalInformation_GridView);
+            this.groupBox27.Controls.Add(this.label43);
+            this.groupBox27.Controls.Add(this.label44);
+            this.groupBox27.Controls.Add(this.professorCourseTaught_GridView);
+            this.groupBox27.Location = new System.Drawing.Point(6, 67);
+            this.groupBox27.Name = "groupBox27";
+            this.groupBox27.Size = new System.Drawing.Size(1120, 600);
+            this.groupBox27.TabIndex = 20;
+            this.groupBox27.TabStop = false;
+            this.groupBox27.Text = "Prefessor\'s Information";
+            // 
+            // professorPersonalInformation_GridView
+            // 
+            this.professorPersonalInformation_GridView.AllowUserToAddRows = false;
+            this.professorPersonalInformation_GridView.AllowUserToDeleteRows = false;
+            this.professorPersonalInformation_GridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.professorPersonalInformation_GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.professorPersonalInformation_GridView.Location = new System.Drawing.Point(22, 40);
+            this.professorPersonalInformation_GridView.Name = "professorPersonalInformation_GridView";
+            this.professorPersonalInformation_GridView.ReadOnly = true;
+            this.professorPersonalInformation_GridView.Size = new System.Drawing.Size(1078, 45);
+            this.professorPersonalInformation_GridView.TabIndex = 18;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(21, 24);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(106, 13);
+            this.label43.TabIndex = 17;
+            this.label43.Text = "Personal Information:";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(21, 105);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(85, 13);
+            this.label44.TabIndex = 15;
+            this.label44.Text = "Courses Taught:";
+            // 
+            // professorCourseTaught_GridView
+            // 
+            this.professorCourseTaught_GridView.AllowUserToAddRows = false;
+            this.professorCourseTaught_GridView.AllowUserToDeleteRows = false;
+            this.professorCourseTaught_GridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.professorCourseTaught_GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.professorCourseTaught_GridView.Location = new System.Drawing.Point(22, 121);
+            this.professorCourseTaught_GridView.Name = "professorCourseTaught_GridView";
+            this.professorCourseTaught_GridView.ReadOnly = true;
+            this.professorCourseTaught_GridView.Size = new System.Drawing.Size(1078, 473);
+            this.professorCourseTaught_GridView.TabIndex = 9;
+            // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.groupBox30);
+            this.tabPage7.Controls.Add(this.groupBox31);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Size = new System.Drawing.Size(1132, 673);
+            this.tabPage7.TabIndex = 3;
+            this.tabPage7.Text = "Courses";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(363, 190);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(359, 13);
+            this.label41.TabIndex = 23;
+            this.label41.Text = "+ Courses with multiple professors appear multiple times, but counted once.";
+            // 
+            // groupBox30
+            // 
+            this.groupBox30.Controls.Add(this.appCourseCode_txt);
+            this.groupBox30.Controls.Add(this.appCourseLookUp_btn);
+            this.groupBox30.Controls.Add(this.label42);
+            this.groupBox30.Location = new System.Drawing.Point(6, 6);
+            this.groupBox30.Name = "groupBox30";
+            this.groupBox30.Size = new System.Drawing.Size(1120, 55);
+            this.groupBox30.TabIndex = 23;
+            this.groupBox30.TabStop = false;
+            this.groupBox30.Text = "Enter Professor\'s ID";
+            // 
+            // appCourseLookUp_btn
+            // 
+            this.appCourseLookUp_btn.Location = new System.Drawing.Point(224, 21);
+            this.appCourseLookUp_btn.Name = "appCourseLookUp_btn";
+            this.appCourseLookUp_btn.Size = new System.Drawing.Size(188, 22);
+            this.appCourseLookUp_btn.TabIndex = 6;
+            this.appCourseLookUp_btn.Text = "Look Up Cources\'s Information";
+            this.appCourseLookUp_btn.UseVisualStyleBackColor = true;
+            this.appCourseLookUp_btn.Click += new System.EventHandler(this.appCourseLookUp_btn_Click);
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.ForeColor = System.Drawing.Color.Red;
+            this.label42.Location = new System.Drawing.Point(21, 25);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(71, 13);
+            this.label42.TabIndex = 2;
+            this.label42.Text = "Course Code:";
+            // 
+            // groupBox31
+            // 
+            this.groupBox31.Controls.Add(this.label46);
+            this.groupBox31.Controls.Add(this.label45);
+            this.groupBox31.Controls.Add(this.courseHistory_GridView);
+            this.groupBox31.Location = new System.Drawing.Point(6, 67);
+            this.groupBox31.Name = "groupBox31";
+            this.groupBox31.Size = new System.Drawing.Size(1120, 600);
+            this.groupBox31.TabIndex = 22;
+            this.groupBox31.TabStop = false;
+            this.groupBox31.Text = "Courses\'s Information";
+            // 
+            // courseHistory_GridView
+            // 
+            this.courseHistory_GridView.AllowUserToAddRows = false;
+            this.courseHistory_GridView.AllowUserToDeleteRows = false;
+            this.courseHistory_GridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.courseHistory_GridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.courseHistory_GridView.Location = new System.Drawing.Point(22, 40);
+            this.courseHistory_GridView.Name = "courseHistory_GridView";
+            this.courseHistory_GridView.ReadOnly = true;
+            this.courseHistory_GridView.Size = new System.Drawing.Size(1078, 554);
+            this.courseHistory_GridView.TabIndex = 9;
+            // 
+            // appCourseCode_txt
+            // 
+            this.appCourseCode_txt.Location = new System.Drawing.Point(98, 22);
+            this.appCourseCode_txt.Name = "appCourseCode_txt";
+            this.appCourseCode_txt.Size = new System.Drawing.Size(100, 20);
+            this.appCourseCode_txt.TabIndex = 7;
+            this.appCourseCode_txt.Text = "DEF-2200";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(21, 24);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(125, 13);
+            this.label45.TabIndex = 17;
+            this.label45.Text = "Course History and Data:";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(741, 24);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(359, 13);
+            this.label46.TabIndex = 24;
+            this.label46.Text = "+ Courses with multiple professors appear multiple times, but counted once.";
             // 
             // Form1
             // 
@@ -2802,10 +3788,26 @@ namespace Student_Management_System
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 761);
             this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Student Database System";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.tabControl1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.groupBox23.ResumeLayout(false);
+            this.groupBox23.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.avgNStudentPerClub_updwn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nClub_updwn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avgNStudentPerClass_updwn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nClasses_updwn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nCourse_updwn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nStudent_updwn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nProfessor_updwn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nDepartment_updwn)).EndInit();
+            this.groupBox22.ResumeLayout(false);
+            this.groupBox22.PerformLayout();
+            this.groupBox21.ResumeLayout(false);
+            this.groupBox21.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.departmentInsert.ResumeLayout(false);
@@ -2889,7 +3891,6 @@ namespace Student_Management_System
             ((System.ComponentModel.ISupportInitialize)(this.memberUin_GridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.member_GridView)).EndInit();
             this.presidentInsert.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
             this.groupBox19.ResumeLayout(false);
             this.groupBox19.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.presidentClubId_updwn)).EndInit();
@@ -2899,6 +3900,33 @@ namespace Student_Management_System
             ((System.ComponentModel.ISupportInitialize)(this.presidentClubId_GridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.presidentUin_GridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.president_GridView)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabControl3.ResumeLayout(false);
+            this.tabPage6.ResumeLayout(false);
+            this.groupBox28.ResumeLayout(false);
+            this.groupBox28.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.appStudentUin_updwn)).EndInit();
+            this.groupBox29.ResumeLayout(false);
+            this.groupBox29.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.studentPresident_GridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentClubMembership_GridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentPersonalInformation_GridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentGpa_GridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentCoursesTaken_GridView)).EndInit();
+            this.tabPage5.ResumeLayout(false);
+            this.groupBox26.ResumeLayout(false);
+            this.groupBox26.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.appProfessorId_updown)).EndInit();
+            this.groupBox27.ResumeLayout(false);
+            this.groupBox27.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.professorPersonalInformation_GridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.professorCourseTaught_GridView)).EndInit();
+            this.tabPage7.ResumeLayout(false);
+            this.groupBox30.ResumeLayout(false);
+            this.groupBox30.PerformLayout();
+            this.groupBox31.ResumeLayout(false);
+            this.groupBox31.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.courseHistory_GridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3133,6 +4161,79 @@ namespace Student_Management_System
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Button generateData_btn;
+        private System.Windows.Forms.Button deleteAllEntries_btn;
+        private System.Windows.Forms.GroupBox groupBox21;
+        private System.Windows.Forms.Label username_lbl;
+        private System.Windows.Forms.TextBox password_txt;
+        private System.Windows.Forms.Label password_lbl;
+        private System.Windows.Forms.TextBox username_txt;
+        private System.Windows.Forms.TextBox databaseName_txt;
+        private System.Windows.Forms.Label databaseName_lbl;
+        private System.Windows.Forms.GroupBox groupBox22;
+        private System.Windows.Forms.Label deleteStatus_lbl;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.GroupBox groupBox23;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.NumericUpDown nProfessor_updwn;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.NumericUpDown nDepartment_updwn;
+        private System.Windows.Forms.Label nDepartment_lbl;
+        private System.Windows.Forms.NumericUpDown avgNStudentPerClub_updwn;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.NumericUpDown nClub_updwn;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.NumericUpDown avgNStudentPerClass_updwn;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.NumericUpDown nClasses_updwn;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.NumericUpDown nCourse_updwn;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.NumericUpDown nStudent_updwn;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label dataGenerateStatus_lbl;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.TextBox serverIp_txt;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabControl tabControl3;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.GroupBox groupBox28;
+        private System.Windows.Forms.Button appStudentInformation_btn;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.NumericUpDown appStudentUin_updwn;
+        private System.Windows.Forms.GroupBox groupBox29;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.DataGridView studentGpa_GridView;
+        private System.Windows.Forms.DataGridView studentCoursesTaken_GridView;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.DataGridView studentPersonalInformation_GridView;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.DataGridView studentClubMembership_GridView;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.DataGridView studentPresident_GridView;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.GroupBox groupBox26;
+        private System.Windows.Forms.Button appPrefessorLookUp_btn;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.NumericUpDown appProfessorId_updown;
+        private System.Windows.Forms.GroupBox groupBox27;
+        private System.Windows.Forms.DataGridView professorPersonalInformation_GridView;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.DataGridView professorCourseTaught_GridView;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.GroupBox groupBox30;
+        private System.Windows.Forms.TextBox appCourseCode_txt;
+        private System.Windows.Forms.Button appCourseLookUp_btn;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.GroupBox groupBox31;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.DataGridView courseHistory_GridView;
     }
 }
 
