@@ -32,6 +32,9 @@ namespace Student_Management_System
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox24 = new System.Windows.Forms.GroupBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.createDatabase_btn = new System.Windows.Forms.Button();
             this.groupBox23 = new System.Windows.Forms.GroupBox();
             this.dataGenerateStatus_lbl = new System.Windows.Forms.Label();
             this.avgNStudentPerClub_updwn = new System.Windows.Forms.NumericUpDown();
@@ -59,6 +62,7 @@ namespace Student_Management_System
             this.label21 = new System.Windows.Forms.Label();
             this.deleteAllEntries_btn = new System.Windows.Forms.Button();
             this.groupBox21 = new System.Windows.Forms.GroupBox();
+            this.label33 = new System.Windows.Forms.Label();
             this.serverIp_txt = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
             this.databaseName_txt = new System.Windows.Forms.TextBox();
@@ -301,6 +305,7 @@ namespace Student_Management_System
             this.label55 = new System.Windows.Forms.Label();
             this.appStudentUin_updwn = new System.Windows.Forms.NumericUpDown();
             this.groupBox29 = new System.Windows.Forms.GroupBox();
+            this.label41 = new System.Windows.Forms.Label();
             this.studentPresident_GridView = new System.Windows.Forms.DataGridView();
             this.label50 = new System.Windows.Forms.Label();
             this.studentClubMembership_GridView = new System.Windows.Forms.DataGridView();
@@ -322,17 +327,17 @@ namespace Student_Management_System
             this.label44 = new System.Windows.Forms.Label();
             this.professorCourseTaught_GridView = new System.Windows.Forms.DataGridView();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.label41 = new System.Windows.Forms.Label();
             this.groupBox30 = new System.Windows.Forms.GroupBox();
+            this.appCourseCode_txt = new System.Windows.Forms.TextBox();
             this.appCourseLookUp_btn = new System.Windows.Forms.Button();
             this.label42 = new System.Windows.Forms.Label();
             this.groupBox31 = new System.Windows.Forms.GroupBox();
-            this.courseHistory_GridView = new System.Windows.Forms.DataGridView();
-            this.appCourseCode_txt = new System.Windows.Forms.TextBox();
-            this.label45 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.courseHistory_GridView = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.groupBox24.SuspendLayout();
             this.groupBox23.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.avgNStudentPerClub_updwn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nClub_updwn)).BeginInit();
@@ -452,6 +457,7 @@ namespace Student_Management_System
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.groupBox24);
             this.tabPage2.Controls.Add(this.groupBox23);
             this.tabPage2.Controls.Add(this.groupBox22);
             this.tabPage2.Controls.Add(this.groupBox21);
@@ -462,6 +468,36 @@ namespace Student_Management_System
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Data Generation";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox24
+            // 
+            this.groupBox24.Controls.Add(this.label36);
+            this.groupBox24.Controls.Add(this.createDatabase_btn);
+            this.groupBox24.Location = new System.Drawing.Point(6, 94);
+            this.groupBox24.Name = "groupBox24";
+            this.groupBox24.Size = new System.Drawing.Size(1140, 79);
+            this.groupBox24.TabIndex = 8;
+            this.groupBox24.TabStop = false;
+            this.groupBox24.Text = "Create Database";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(14, 25);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(290, 13);
+            this.label36.TabIndex = 3;
+            this.label36.Text = "This does not harm the existing database, if database exists.";
+            // 
+            // createDatabase_btn
+            // 
+            this.createDatabase_btn.Location = new System.Drawing.Point(17, 50);
+            this.createDatabase_btn.Name = "createDatabase_btn";
+            this.createDatabase_btn.Size = new System.Drawing.Size(110, 23);
+            this.createDatabase_btn.TabIndex = 2;
+            this.createDatabase_btn.Text = "Create Database";
+            this.createDatabase_btn.UseVisualStyleBackColor = true;
+            this.createDatabase_btn.Click += new System.EventHandler(this.createDatabase_btn_Click);
             // 
             // groupBox23
             // 
@@ -486,7 +522,7 @@ namespace Student_Management_System
             this.groupBox23.Controls.Add(this.label23);
             this.groupBox23.Controls.Add(this.generateData_btn);
             this.groupBox23.Enabled = false;
-            this.groupBox23.Location = new System.Drawing.Point(6, 168);
+            this.groupBox23.Location = new System.Drawing.Point(6, 264);
             this.groupBox23.Name = "groupBox23";
             this.groupBox23.Size = new System.Drawing.Size(1140, 145);
             this.groupBox23.TabIndex = 8;
@@ -786,7 +822,7 @@ namespace Student_Management_System
             this.groupBox22.Controls.Add(this.label21);
             this.groupBox22.Controls.Add(this.deleteAllEntries_btn);
             this.groupBox22.Enabled = false;
-            this.groupBox22.Location = new System.Drawing.Point(6, 89);
+            this.groupBox22.Location = new System.Drawing.Point(6, 179);
             this.groupBox22.Name = "groupBox22";
             this.groupBox22.Size = new System.Drawing.Size(1140, 79);
             this.groupBox22.TabIndex = 7;
@@ -833,6 +869,7 @@ namespace Student_Management_System
             // 
             // groupBox21
             // 
+            this.groupBox21.Controls.Add(this.label33);
             this.groupBox21.Controls.Add(this.serverIp_txt);
             this.groupBox21.Controls.Add(this.label31);
             this.groupBox21.Controls.Add(this.databaseName_txt);
@@ -848,6 +885,15 @@ namespace Student_Management_System
             this.groupBox21.TabIndex = 3;
             this.groupBox21.TabStop = false;
             this.groupBox21.Text = "Connect to MySQL Database";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(740, 44);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(192, 13);
+            this.label33.TabIndex = 9;
+            this.label33.Text = "If database does not exist, leave blank.";
             // 
             // serverIp_txt
             // 
@@ -3459,6 +3505,15 @@ namespace Student_Management_System
             this.groupBox29.TabStop = false;
             this.groupBox29.Text = "Student\'s Information";
             // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(363, 190);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(359, 13);
+            this.label41.TabIndex = 23;
+            this.label41.Text = "+ Courses with multiple professors appear multiple times, but counted once.";
+            // 
             // studentPresident_GridView
             // 
             this.studentPresident_GridView.AllowUserToAddRows = false;
@@ -3691,15 +3746,6 @@ namespace Student_Management_System
             this.tabPage7.Text = "Courses";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(363, 190);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(359, 13);
-            this.label41.TabIndex = 23;
-            this.label41.Text = "+ Courses with multiple professors appear multiple times, but counted once.";
-            // 
             // groupBox30
             // 
             this.groupBox30.Controls.Add(this.appCourseCode_txt);
@@ -3711,6 +3757,14 @@ namespace Student_Management_System
             this.groupBox30.TabIndex = 23;
             this.groupBox30.TabStop = false;
             this.groupBox30.Text = "Enter Professor\'s ID";
+            // 
+            // appCourseCode_txt
+            // 
+            this.appCourseCode_txt.Location = new System.Drawing.Point(98, 22);
+            this.appCourseCode_txt.Name = "appCourseCode_txt";
+            this.appCourseCode_txt.Size = new System.Drawing.Size(100, 20);
+            this.appCourseCode_txt.TabIndex = 7;
+            this.appCourseCode_txt.Text = "ABC-4186";
             // 
             // appCourseLookUp_btn
             // 
@@ -3744,6 +3798,24 @@ namespace Student_Management_System
             this.groupBox31.TabStop = false;
             this.groupBox31.Text = "Courses\'s Information";
             // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(741, 24);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(359, 13);
+            this.label46.TabIndex = 24;
+            this.label46.Text = "+ Courses with multiple professors appear multiple times, but counted once.";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(21, 24);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(125, 13);
+            this.label45.TabIndex = 17;
+            this.label45.Text = "Course History and Data:";
+            // 
             // courseHistory_GridView
             // 
             this.courseHistory_GridView.AllowUserToAddRows = false;
@@ -3756,32 +3828,6 @@ namespace Student_Management_System
             this.courseHistory_GridView.Size = new System.Drawing.Size(1078, 554);
             this.courseHistory_GridView.TabIndex = 9;
             // 
-            // appCourseCode_txt
-            // 
-            this.appCourseCode_txt.Location = new System.Drawing.Point(98, 22);
-            this.appCourseCode_txt.Name = "appCourseCode_txt";
-            this.appCourseCode_txt.Size = new System.Drawing.Size(100, 20);
-            this.appCourseCode_txt.TabIndex = 7;
-            this.appCourseCode_txt.Text = "DEF-2200";
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(21, 24);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(125, 13);
-            this.label45.TabIndex = 17;
-            this.label45.Text = "Course History and Data:";
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(741, 24);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(359, 13);
-            this.label46.TabIndex = 24;
-            this.label46.Text = "+ Courses with multiple professors appear multiple times, but counted once.";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3789,11 +3835,14 @@ namespace Student_Management_System
             this.ClientSize = new System.Drawing.Size(1184, 761);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Student Database System";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.tabControl1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.groupBox24.ResumeLayout(false);
+            this.groupBox24.PerformLayout();
             this.groupBox23.ResumeLayout(false);
             this.groupBox23.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.avgNStudentPerClub_updwn)).EndInit();
@@ -4234,6 +4283,10 @@ namespace Student_Management_System
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.DataGridView courseHistory_GridView;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.GroupBox groupBox24;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Button createDatabase_btn;
     }
 }
 

@@ -81,6 +81,7 @@ namespace Student_Management_System
             groupBox20.Enabled = false;
             groupBox22.Enabled = false;
             groupBox23.Enabled = false;
+            groupBox24.Enabled = false;
             groupBox26.Enabled = false;
             groupBox27.Enabled = false;
             groupBox28.Enabled = false;
@@ -124,6 +125,7 @@ namespace Student_Management_System
                 groupBox20.Enabled = true;
                 groupBox22.Enabled = true;
                 groupBox23.Enabled = true;
+                groupBox24.Enabled = true;
                 groupBox26.Enabled = true;
                 groupBox27.Enabled = true;
                 groupBox28.Enabled = true;
@@ -183,6 +185,7 @@ namespace Student_Management_System
                 groupBox20.Enabled = false;
                 groupBox22.Enabled = false;
                 groupBox23.Enabled = false;
+                groupBox24.Enabled = false;
                 groupBox26.Enabled = false;
                 groupBox27.Enabled = false;
                 groupBox28.Enabled = false;
@@ -2028,9 +2031,9 @@ namespace Student_Management_System
             {
                 MySql.Data.MySqlClient.MySqlDataAdapter courseHistoryTaughtDataAdapter;
                 DataSet courseHistoryTaughtDataSet;
-                string sqlQuery = "SELECT class.classId as 'Class ID', course.courseCode as 'Course Code', course.name as 'Course Name', course.credit as 'Credit Hours', class.year as 'Year', class.Semester as 'Semester', allAverages.courseAverage as 'Class Average', allAverages.bestGrade as 'Top Score', professor.name as 'Professor Name', professor.email as 'Professor Email', professor.profId as 'Professor ID' " +
-                                  "FROM professor, course, class, teach, (SELECT classId, (sum(taken.grade)/count(taken.uin)) as courseAverage, max(taken.grade) as bestGrade FROM taken group by classId) as allAverages " +
-                                  "WHERE allAverages.classId = class.classId AND professor.profId = teach.profId AND teach.classId = class.classId AND class.courseCode = course.courseCode AND course.courseCode = '" + courseCode + "';";
+                string sqlQuery = "SELECT class.classId as 'Class ID', department.name as 'Department', course.courseCode as 'Course Code', course.name as 'Course Name', course.credit as 'Credit Hours', class.year as 'Year', class.Semester as 'Semester', allAverages.courseAverage as 'Class Average', allAverages.bestGrade as 'Top Score', professor.name as 'Professor Name', professor.email as 'Professor Email', professor.profId as 'Professor ID' " +
+                                  "FROM department, professor, course, class, teach, (SELECT classId, (sum(taken.grade)/count(taken.uin)) as courseAverage, max(taken.grade) as bestGrade FROM taken group by classId) as allAverages " +
+                                  "WHERE department.depId = course.depId AND allAverages.classId = class.classId AND professor.profId = teach.profId AND teach.classId = class.classId AND class.courseCode = course.courseCode AND course.courseCode = '" + courseCode + "';";
                 courseHistoryTaughtDataAdapter = new MySql.Data.MySqlClient.MySqlDataAdapter(sqlQuery, sqlConnection);
                 MySql.Data.MySqlClient.MySqlCommandBuilder cb = new MySql.Data.MySqlClient.MySqlCommandBuilder(courseHistoryTaughtDataAdapter);
                 courseHistoryTaughtDataSet = new DataSet();
@@ -2043,5 +2046,207 @@ namespace Student_Management_System
                 MessageBox.Show(ex.Message);
             }
         }
-}
+
+        private void createDatabase_btn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string myInsertQuery = "CREATE SCHEMA IF NOT EXISTS `StudentDB` DEFAULT CHARACTER SET utf8 ;";
+                MySql.Data.MySqlClient.MySqlCommand myCommand = new MySql.Data.MySqlClient.MySqlCommand(myInsertQuery);
+                myCommand.Connection = sqlConnection;
+                myCommand.ExecuteNonQuery();
+
+                myInsertQuery = "USE `StudentDB` ;";
+                myCommand = new MySql.Data.MySqlClient.MySqlCommand(myInsertQuery);
+                myCommand.Connection = sqlConnection;
+                myCommand.ExecuteNonQuery();
+
+                myInsertQuery = "CREATE TABLE IF NOT EXISTS `StudentDB`.`Department` ( " +
+                                "`depId` INT NOT NULL, " +
+                                "`name` VARCHAR(200) NOT NULL, " +
+                                "`phoneNumber` VARCHAR(45) NOT NULL, " +
+                                "`email` VARCHAR(45) NOT NULL, " +
+                                "PRIMARY KEY(`depId`), " +
+                                "UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE, " +
+                                "UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE) " +
+                                "ENGINE = InnoDB; ";
+                myCommand = new MySql.Data.MySqlClient.MySqlCommand(myInsertQuery);
+                myCommand.Connection = sqlConnection;
+                myCommand.ExecuteNonQuery();
+
+
+                myInsertQuery = "CREATE TABLE IF NOT EXISTS `StudentDB`.`Student` ( " +
+                                "`uin` INT NOT NULL AUTO_INCREMENT, " +
+                                "`name` VARCHAR(100) NOT NULL, " +
+                                "`birthdate` DATE NOT NULL, " +
+                                "`phoneNumber` VARCHAR(45) NOT NULL, " +
+                                "`email` VARCHAR(45) NOT NULL, " +
+                                "`depId` INT NOT NULL, " +
+                                "PRIMARY KEY (`uin`), " +
+                                "INDEX `fk_depId_idx` (`depId` ASC) VISIBLE, " +
+                                "CONSTRAINT `fk_depId_Student` " +
+                                "FOREIGN KEY (`depId`) " +
+                                "REFERENCES `StudentDB`.`Department` (`depId`) " +
+                                "ON DELETE NO ACTION " +
+                                "ON UPDATE NO ACTION) " +
+                                "ENGINE = InnoDB; ";
+                myCommand = new MySql.Data.MySqlClient.MySqlCommand(myInsertQuery);
+                myCommand.Connection = sqlConnection;
+                myCommand.ExecuteNonQuery();
+
+
+                myInsertQuery = "CREATE TABLE IF NOT EXISTS `StudentDB`.`Professor` ( " +
+                                "`profId` INT NOT NULL, " +
+                                "`name` VARCHAR(100) NOT NULL, " +
+                                "`birthdate` DATE NOT NULL, " +
+                                "`phoneNumber` VARCHAR(45) NOT NULL, " +
+                                "`email` VARCHAR(45) NOT NULL, " +
+                                "PRIMARY KEY (`profId`)) " +
+                                "ENGINE = InnoDB; ";
+                myCommand = new MySql.Data.MySqlClient.MySqlCommand(myInsertQuery);
+                myCommand.Connection = sqlConnection;
+                myCommand.ExecuteNonQuery();
+
+
+                myInsertQuery = "CREATE TABLE IF NOT EXISTS `StudentDB`.`Course` ( " +
+                                "`courseCode` VARCHAR(15) NOT NULL, " +
+                                "`name` VARCHAR(200) NOT NULL, " +
+                                "`credit` INT NOT NULL, " +
+                                "`depId` INT NOT NULL, " +
+                                "PRIMARY KEY (`courseCode`), " +
+                                "INDEX `fk_depId_idx` (`depId` ASC) VISIBLE, " +
+                                "CONSTRAINT `fk_depId_Course` " +
+                                "FOREIGN KEY (`depId`) " +
+                                "REFERENCES `StudentDB`.`Department` (`depId`) " +
+                                "ON DELETE NO ACTION " +
+                                "ON UPDATE NO ACTION) " +
+                                "ENGINE = InnoDB; ";
+                myCommand = new MySql.Data.MySqlClient.MySqlCommand(myInsertQuery);
+                myCommand.Connection = sqlConnection;
+                myCommand.ExecuteNonQuery();
+
+
+                myInsertQuery = "CREATE TABLE IF NOT EXISTS `StudentDB`.`Class` ( " +
+                                "`classId` INT NOT NULL, " +
+                                "`year` INT NOT NULL, " +
+                                "`Semester` INT NOT NULL, " +
+                                "`courseCode` VARCHAR(45) NOT NULL, " +
+                                "PRIMARY KEY (`classId`), " +
+                                "INDEX `fk_courseCode_idx` (`courseCode` ASC) VISIBLE, " +
+                                "CONSTRAINT `fk_courseCode_Class` " +
+                                "FOREIGN KEY (`courseCode`) " +
+                                "REFERENCES `StudentDB`.`Course` (`courseCode`) " +
+                                "ON DELETE NO ACTION " +
+                                "ON UPDATE NO ACTION) " +
+                                "ENGINE = InnoDB; ";
+                myCommand = new MySql.Data.MySqlClient.MySqlCommand(myInsertQuery);
+                myCommand.Connection = sqlConnection;
+                myCommand.ExecuteNonQuery();
+
+
+                myInsertQuery = "CREATE TABLE IF NOT EXISTS `StudentDB`.`Club` ( " +
+                                "`clubId` INT NOT NULL, " +
+                                "`name` VARCHAR(200) NOT NULL, " +
+                                "`email` VARCHAR(45) NOT NULL, " +
+                                "PRIMARY KEY (`clubId`), " +
+                                "UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE, " +
+                                "UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE) " +
+                                "ENGINE = InnoDB;";
+                myCommand = new MySql.Data.MySqlClient.MySqlCommand(myInsertQuery);
+                myCommand.Connection = sqlConnection;
+                myCommand.ExecuteNonQuery();
+
+
+                myInsertQuery = "CREATE TABLE IF NOT EXISTS `StudentDB`.`Teach` ( " +
+                                "`profId` INT NOT NULL, " +
+                                "`classId` INT NOT NULL, " +
+                                "PRIMARY KEY (`classId`, `profId`), " +
+                                "INDEX `fk_profId_idx` (`profId` ASC) VISIBLE, " +
+                                "CONSTRAINT `fk_profId_Teach` " +
+                                "FOREIGN KEY (`profId`) " +
+                                "REFERENCES `StudentDB`.`Professor` (`profId`) " +
+                                "ON DELETE NO ACTION " +
+                                "ON UPDATE NO ACTION, " +
+                                "CONSTRAINT `fk_classId_Teach` " +
+                                "FOREIGN KEY (`classId`) " +
+                                "REFERENCES `StudentDB`.`Class` (`classId`) " +
+                                "ON DELETE NO ACTION " +
+                                "ON UPDATE NO ACTION) " +
+                                "ENGINE = InnoDB; ";
+                myCommand = new MySql.Data.MySqlClient.MySqlCommand(myInsertQuery);
+                myCommand.Connection = sqlConnection;
+                myCommand.ExecuteNonQuery();
+
+
+                myInsertQuery = "CREATE TABLE IF NOT EXISTS `StudentDB`.`Taken` ( " +
+                                "`uin` INT NOT NULL, " +
+                                "`classId` INT NOT NULL, " +
+                                "`grade` INT NOT NULL, " +
+                                "PRIMARY KEY (`classId`, `uin`), " +
+                                "INDEX `fk_uin_idx` (`uin` ASC) VISIBLE, " +
+                                "CONSTRAINT `fk_uin_Taken` " +
+                                "FOREIGN KEY (`uin`) " +
+                                "REFERENCES `StudentDB`.`Student` (`uin`) " +
+                                "ON DELETE NO ACTION " +
+                                "ON UPDATE NO ACTION, " +
+                                "CONSTRAINT `fk_classId_Taken` " +
+                                "FOREIGN KEY (`classId`) " +
+                                "REFERENCES `StudentDB`.`Class` (`classId`) " +
+                                "ON DELETE NO ACTION " +
+                                "ON UPDATE NO ACTION) " +
+                                "ENGINE = InnoDB; ";
+                myCommand = new MySql.Data.MySqlClient.MySqlCommand(myInsertQuery);
+                myCommand.Connection = sqlConnection;
+                myCommand.ExecuteNonQuery();
+
+
+                myInsertQuery = "CREATE TABLE IF NOT EXISTS `StudentDB`.`Member` ( " +
+                                "`uin` INT NOT NULL, " +
+                                "`clubId` INT NOT NULL, " +
+                                "PRIMARY KEY (`clubId`, `uin`), " +
+                                "INDEX `fk_uin_idx` (`uin` ASC) VISIBLE, " +
+                                "CONSTRAINT `fk_uin_Member` " +
+                                "FOREIGN KEY (`uin`) " +
+                                "REFERENCES `StudentDB`.`Student` (`uin`) " +
+                                "ON DELETE NO ACTION " +
+                                "ON UPDATE NO ACTION, " +
+                                "CONSTRAINT `fk_clubId_Member` " +
+                                "FOREIGN KEY (`clubId`) " +
+                                "REFERENCES `StudentDB`.`Club` (`clubId`) " +
+                                "ON DELETE NO ACTION " +
+                                "ON UPDATE NO ACTION) " +
+                                "ENGINE = InnoDB; ";
+                myCommand = new MySql.Data.MySqlClient.MySqlCommand(myInsertQuery);
+                myCommand.Connection = sqlConnection;
+                myCommand.ExecuteNonQuery();
+
+
+                myInsertQuery = "CREATE TABLE IF NOT EXISTS `StudentDB`.`President` ( " +
+                                "`uin` INT NOT NULL, " +
+                                "`clubId` INT NOT NULL, " +
+                                "PRIMARY KEY (`clubId`, `uin`), " +
+                                "INDEX `uin_idx` (`uin` ASC) VISIBLE, " +
+                                "CONSTRAINT `fk_uin_President` " +
+                                "FOREIGN KEY (`uin`) " +
+                                "REFERENCES `StudentDB`.`Student` (`uin`) " +
+                                "ON DELETE NO ACTION " +
+                                "ON UPDATE NO ACTION, " +
+                                "CONSTRAINT `fk_clubId_President` " +
+                                "FOREIGN KEY (`clubId`) " +
+                                "REFERENCES `StudentDB`.`Club` (`clubId`) " +
+                                "ON DELETE NO ACTION " +
+                                "ON UPDATE NO ACTION) " +
+                                "ENGINE = InnoDB; ";
+                myCommand = new MySql.Data.MySqlClient.MySqlCommand(myInsertQuery);
+                myCommand.Connection = sqlConnection;
+                myCommand.ExecuteNonQuery();
+
+                MessageBox.Show("Database Is Built");
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+    }
 }
